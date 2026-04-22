@@ -1,0 +1,18 @@
+{
+  "projectPath": ".",
+  "outputPath": "aspirate-output",
+  "containerRegistry": "https://hub.docker.com/repositories/sarialbebeto",
+  "containerImageTags": [
+    "latest"
+  ],
+  "containerBuilder": "docker",
+  "templatePath": "/home/ubuntu/eShop/charts",
+  "containerRepositoryPrefix": "https://hub.docker.com/repositories/sarialbebeto",
+  "outputFormat": "helm",
+  "privateRegistryEmail": "aspir8@aka.ms",
+  "secrets": {
+    "salt": "Ms3jX2vdji/O\u002BB51",
+    "hash": "j\u002BQNwG9aEmCpwLpWeLFQbhYtjiJUnncWZ47cyht2bBo=",
+    "secrets": {}
+  }
+}

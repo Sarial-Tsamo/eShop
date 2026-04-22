@@ -1,0 +1,66 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and Push Catalog.API
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/eshop-catalog:latest -f src/Catalog.API/Dockerfile .
+          docker push ${{ secrets.DOCKER_USERNAME }}/eshop-catalog:latest
+
+      - name: Build and Push WebApp
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/eshop-webapp:latest -f src/WebApp/Dockerfile .
+          docker push ${{ secrets.DOCKER_USERNAME }}/eshop-webapp:latest
+      
+      # Add more services as needed (Identity, Ordering, etc.)
+
+  sync-to-deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Push updates to Deploy Branch
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git checkout -B deploy
+          # If you have helm values files to update, do it here
+          git push origin deploy --force
+
+  deploy-to-k3s:
+    needs: sync-to-deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VM_SSH_IP }}
+          username: ubuntu
+          key: ${{ secrets.VM_SSH_KEY }}
+          script: |
+            cd ~/eShop
+            git pull origin deploy
+            # Use Helm to deploy. Assuming charts are in a 'charts' folder
+            helm upgrade --install eshop ./charts/eshop-app \
+              --namespace eshop-namespace --create-namespace \
+              --set global.image.repository=${{ secrets.DOCKER_USERNAME }} \
+              --kubeconfig /etc/rancher/k3s/k3s.yaml

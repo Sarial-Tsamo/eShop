@@ -5,8 +5,23 @@ metadata:
   name: eshop-k3s
   namespace: eshop
 
-bases:
-  - ../
+# bases:
+#   - ../
+
+resources:
+  - ../../namespace.yaml
+  - ../../basket-api-deployment.yaml
+  - ../../catalog-api-deployment.yaml
+  - ../../identity-api-deployment.yaml
+  - ../../ordering-api-deployment.yaml
+  - ../../order-processor-deployment.yaml
+  - ../../payment-processor-deployment.yaml
+  - ../../webapp-deployment.yaml
+  - ../../webhooks-api-deployment.yaml
+  - ../../webhooksclient-deployment.yaml
+  - ../../postgres-statefulset.yaml
+  - ../../rabbitmq-statefulset.yaml
+  - ../../redis-deployment.yaml
 
 patchesStrategicMerge:
   - webapp-patch.yaml

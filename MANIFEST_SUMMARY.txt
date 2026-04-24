@@ -1,0 +1,306 @@
+================================================================================
+                     eShop Kubernetes Manifest Summary
+                     Generated for k3s Deployment
+================================================================================
+
+LOCATION: /home/ubuntu/eShop/manifest-output/
+
+================================================================================
+                              QUICK START
+================================================================================
+
+Option 1 - Automated Deployment:
+    cd /home/ubuntu/eShop/manifest-output
+    ./deploy.sh
+
+Option 2 - Manual Deployment:
+    kubectl apply -k /home/ubuntu/eShop/manifest-output/
+
+Option 3 - k3s Optimized (with Traefik):
+    kubectl apply -k /home/ubuntu/eShop/manifest-output/overlays/k3s/
+
+Validate Deployment:
+    ./validate.sh
+
+================================================================================
+                         GENERATED ARTIFACTS
+================================================================================
+
+📁 BASE MANIFESTS (13 total)
+────────────────────────────────────────────────────────────────────────────
+  Core Infrastructure:
+    ✓ namespace.yaml              - Kubernetes namespace 'eshop'
+    ✓ postgres-statefulset.yaml   - PostgreSQL database (pgvector)
+    ✓ redis-deployment.yaml       - Redis cache
+    ✓ rabbitmq-statefulset.yaml   - RabbitMQ message broker
+
+  Microservices (9 services):
+    ✓ identity-api-deployment.yaml
+    ✓ basket-api-deployment.yaml
+    ✓ catalog-api-deployment.yaml
+    ✓ ordering-api-deployment.yaml
+    ✓ order-processor-deployment.yaml
+    ✓ payment-processor-deployment.yaml
+    ✓ webhooks-api-deployment.yaml
+    ✓ webapp-deployment.yaml
+    ✓ webhooksclient-deployment.yaml
+
+  Configuration:
+    ✓ kustomization.yaml          - Base Kustomize configuration
+
+📁 K3S OVERLAY (3 total)
+────────────────────────────────────────────────────────────────────────────
+  overlays/k3s/
+    ✓ kustomization.yaml          - k3s-specific overrides
+    ✓ traefik-ingress.yaml        - Traefik ingress routing
+    ✓ webapp-patch.yaml           - Resource optimization for k3s
+
+📁 DEPLOYMENT TOOLS (2 scripts)
+────────────────────────────────────────────────────────────────────────────
+    ✓ deploy.sh                   - Automated deployment script
+    ✓ validate.sh                 - Validation & status checker
+
+📁 DOCUMENTATION (3 files)
+────────────────────────────────────────────────────────────────────────────
+    ✓ README.md                   - Comprehensive documentation
+    ✓ DEPLOYMENT_GUIDE.md         - Quick start & troubleshooting
+    ✓ MANIFEST_SUMMARY.txt        - This file
+
+================================================================================
+                         KUBERNETES RESOURCES
+================================================================================
+
+DEPLOYMENTS (11):
+  • identity-api
+  • basket-api
+  • catalog-api
+  • ordering-api
+  • order-processor
+  • payment-processor
+  • webhooks-api
+  • webapp (replicas: 2)
+  • webhooksclient
+  • redis
+  • (rabbitmq is StatefulSet)
+
+STATEFULSETS (2):
+  • postgres        (1 replica, 10Gi storage)
+  • rabbitmq        (1 replica, persistent)
+
+SERVICES (13):
+  • identity-api         (LoadBalancer, port 80/443)
+  • basket-api           (ClusterIP, port 80)
+  • catalog-api          (ClusterIP, port 80)
+  • ordering-api         (ClusterIP, port 80)
+  • order-processor      (ClusterIP)
+  • payment-processor    (ClusterIP)
+  • webhooks-api         (ClusterIP, port 80)
+  • webapp               (LoadBalancer, port 80/443)
+  • webhooksclient       (LoadBalancer, port 80/443)
+  • postgres             (Headless, port 5432)
+  • redis                (ClusterIP, port 6379)
+  • eventbus (RabbitMQ)  (Headless, port 5672/15672)
+
+INGRESS (1 - k3s overlay only):
+  • eshop-ingress
+    - eshop.local      → webapp:80
+    - api.eshop.local  → identity-api, catalog-api, ordering-api, basket-api
+
+PERSISTENT VOLUMES:
+  • postgres-pv         (10Gi)
+  • postgres-pvc        (Mounted in postgres pod)
+
+================================================================================
+                         DEPLOYMENT CONFIGURATION
+================================================================================
+
+DEFAULT RESOURCE LIMITS:
+  • API Services:    256Mi mem / 250m CPU (requests), 512Mi / 500m (limits)
+  • Databases:       256-512Mi mem / 250-500m CPU
+  • Processors:      256Mi mem / 250m CPU (requests), 512Mi / 500m (limits)
+  • WebApp:          512Mi mem / 500m CPU (requests), 1Gi / 1000m (limits)
+  • WebApp (k3s):    256Mi mem / 250m CPU (requests), 512Mi / 500m (limits)
+
+HEALTH CHECKS:
+  • Type:            HTTP
+  • Endpoint:        /health
+  • Liveness:        Initial delay 30s, Period 10s
+  • Readiness:       Initial delay 10s, Period 5s
+
+DATABASE CONFIGURATION:
+  • Engine:          PostgreSQL 15+ with pgvector
+  • Storage:         10Gi StatefulSet volume
+  • Databases:       identitydb, catalogdb, orderingdb, webhooksdb
+  • Default User:    postgres / postgres
+
+CACHE CONFIGURATION:
+  • Engine:          Redis latest
+  • Port:            6379
+  • Replication:     Single instance
+
+MESSAGE BROKER:
+  • Engine:          RabbitMQ 3-management
+  • AMQP Port:       5672
+  • Management UI:   15672 (guest/guest)
+
+================================================================================
+                         NETWORK CONFIGURATION
+================================================================================
+
+NAMESPACE: eshop
+
+SERVICE DISCOVERY (Internal):
+  • <service-name>.eshop.svc.cluster.local
+  • Example: identity-api.eshop.svc.cluster.local
+
+EXTERNAL ACCESS (LoadBalancer):
+  • WebApp:           http://<node-ip>:<LoadBalancer-Port>
+  • Identity API:     http://<node-ip>:<LoadBalancer-Port>
+  • WebhooksClient:   http://<node-ip>:<LoadBalancer-Port>
+
+EXTERNAL ACCESS (Ingress - k3s overlay only):
+  • Add to /etc/hosts:
+    127.0.0.1 eshop.local api.eshop.local
+  • Access:
+    http://eshop.local              (WebApp)
+    http://api.eshop.local/identity (Identity API)
+    http://api.eshop.local/catalog  (Catalog API)
+    http://api.eshop.local/ordering (Ordering API)
+    http://api.eshop.local/basket   (Basket API)
+
+INTER-SERVICE COMMUNICATION:
+  All services can communicate via Kubernetes DNS using service names.
+  Environment variables in deployments already configured with service URLs.
+
+================================================================================
+                         DEPLOYMENT STEPS
+================================================================================
+
+1. PREREQUISITES
+   ✓ k3s cluster running and accessible
+   ✓ kubectl configured
+   ✓ Container images available (or using public registries)
+
+2. DEPLOY
+   Option A - Automated:
+     ./deploy.sh
+   
+   Option B - Manual:
+     kubectl apply -k ./
+   
+   Option C - k3s Optimized:
+     kubectl apply -k ./overlays/k3s/
+
+3. VERIFY
+   kubectl get pods -n eshop -w
+   ./validate.sh
+
+4. MONITOR
+   kubectl top pods -n eshop
+   kubectl logs -n eshop deployment/<service-name>
+
+5. ACCESS
+   kubectl port-forward -n eshop svc/webapp 8080:80
+   Open browser: http://localhost:8080
+
+================================================================================
+                         SECURITY NOTES
+================================================================================
+
+⚠️  DEFAULT CREDENTIALS (Change in Production!):
+  • PostgreSQL:  postgres:postgres
+  • RabbitMQ:    guest:guest
+
+BEFORE PRODUCTION:
+  ☐ Change all default passwords
+  ☐ Use specific image tags (not 'latest')
+  ☐ Configure HTTPS/TLS certificates
+  ☐ Set up private Docker registry with authentication
+  ☐ Implement NetworkPolicy for pod-to-pod communication
+  ☐ Configure RBAC with minimal permissions
+  ☐ Set resource quotas and limits per namespace
+  ☐ Enable audit logging
+  ☐ Regular backups of PostgreSQL data
+  ☐ Use managed services (DB, cache) in cloud environments
+
+================================================================================
+                         TROUBLESHOOTING
+================================================================================
+
+Check Pod Logs:
+  kubectl logs -n eshop deployment/<service-name> -f
+
+Describe Pod Issues:
+  kubectl describe pod -n eshop <pod-name>
+
+Test Service Connectivity:
+  kubectl run -it --rm debug --image=busybox --restart=Never -- sh
+  wget -O- http://<service-name>:80
+
+Database Connection Issues:
+  kubectl exec -it -n eshop postgres-0 -- psql -U postgres
+
+RabbitMQ Issues:
+  kubectl port-forward -n eshop svc/eventbus 15672:15672
+  Visit: http://localhost:15672 (guest/guest)
+
+Scale Service:
+  kubectl scale deployment <service-name> -n eshop --replicas=<count>
+
+Update Image:
+  kubectl set image deployment/<service-name> \
+    -n eshop \
+    <container-name>=<new-image>:tag \
+    --record
+
+================================================================================
+                         NEXT STEPS
+================================================================================
+
+1. Review documentation:
+   • README.md        - Full documentation
+   • DEPLOYMENT_GUIDE.md - Quick start guide
+
+2. Deploy to your k3s cluster:
+   ./deploy.sh
+   OR
+   kubectl apply -k ./
+
+3. Verify deployment:
+   ./validate.sh
+   OR
+   kubectl get pods -n eshop -w
+
+4. Test the application:
+   kubectl port-forward -n eshop svc/webapp 8080:80
+   Open: http://localhost:8080
+
+5. Monitor and manage:
+   kubectl get all -n eshop
+   kubectl logs -n eshop -l app=webapp -f
+   kubectl top pods -n eshop
+
+================================================================================
+                         SUPPORT & DOCUMENTATION
+================================================================================
+
+For detailed information:
+  • README.md              - Comprehensive guide with all options
+  • DEPLOYMENT_GUIDE.md    - Quick start and troubleshooting
+  • Scripts:
+    - deploy.sh            - Automated deployment
+    - validate.sh          - Deployment validation
+
+Manual Deployment:
+  kubectl apply -k /home/ubuntu/eShop/manifest-output/
+
+For k3s with Traefik:
+  kubectl apply -k /home/ubuntu/eShop/manifest-output/overlays/k3s/
+
+================================================================================
+                              END OF SUMMARY
+================================================================================
+
+Generated: 2026-04-24
+Version: 1.0
+Status: Ready for Deployment

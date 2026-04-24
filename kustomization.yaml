@@ -1,0 +1,57 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+metadata:
+  name: eshop
+  namespace: eshop
+
+namespace: eshop
+
+resources:
+  - namespace.yaml
+  - postgres-statefulset.yaml
+  - redis-deployment.yaml
+  - rabbitmq-statefulset.yaml
+  - identity-api-deployment.yaml
+  - basket-api-deployment.yaml
+  - catalog-api-deployment.yaml
+  - ordering-api-deployment.yaml
+  - order-processor-deployment.yaml
+  - payment-processor-deployment.yaml
+  - webhooks-api-deployment.yaml
+  - webapp-deployment.yaml
+  - webhooksclient-deployment.yaml
+
+commonLabels:
+  app: eshop
+  version: v1
+
+commonAnnotations:
+  managed-by: kustomize
+  description: "eShop Microservices Application"
+
+replicas:
+  - name: postgres
+    count: 1
+  - name: redis
+    count: 1
+  - name: rabbitmq
+    count: 1
+  - name: identity-api
+    count: 1
+  - name: basket-api
+    count: 1
+  - name: catalog-api
+    count: 1
+  - name: ordering-api
+    count: 1
+  - name: order-processor
+    count: 1
+  - name: payment-processor
+    count: 1
+  - name: webhooks-api
+    count: 1
+  - name: webapp
+    count: 2
+  - name: webhooksclient
+    count: 1

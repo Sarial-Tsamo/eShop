@@ -12,7 +12,7 @@ echo "Checking prerequisites..."
 command -v kubectl &> /dev/null || { echo "kubectl is required but not installed"; exit 1; }
 
 NAMESPACE="eshop"
-MANIFEST_DIR="manifest-output"
+MANIFEST_DIR="eShop"
 
 echo ""
 echo "📦 Prerequisites Check"
@@ -37,8 +37,8 @@ echo "🚀 Deploying eShop Manifests..."
 echo "  Stage 1: Creating namespace and infrastructure..."
 kubectl apply -k ${MANIFEST_DIR}/ --dry-run=client -o yaml | head -10
 
-echo ""
-read -p "Continue with deployment? (y/n) " -n 1 -r
+echo "Auto-deploying due to CI trigger..."
+# read -p "Continue with deployment? (y/n) " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "  Applying manifests..."

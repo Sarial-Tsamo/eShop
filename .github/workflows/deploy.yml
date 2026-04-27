@@ -16,7 +16,7 @@ jobs:
         with:
           host: ${{ secrets.VM_SSH_IP }}      
           username: ubuntu
-          key: ${{ secrets.SSH_SSH_KEY }} 
+          key: ${{ secrets.VM_SSH_KEY }} 
           script: |
             cd ~/eShop
             git pull origin kube_Branch

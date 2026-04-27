@@ -36,7 +36,7 @@ kubectl get nodes --no-headers | awk '{print "    - "$1" ("$5")"}'
 echo ""
 echo "🚀 Deploying eShop Manifests..."
 echo "  Stage 1: Creating namespace and infrastructure..."
-kubectl apply -k ${MANIFEST_DIR}
+kubectl apply -k ${MANIFEST_DIR} --load-restrictor LoadRestrictionsNone
 
 echo "✅ Manifests applied successfully!"
 

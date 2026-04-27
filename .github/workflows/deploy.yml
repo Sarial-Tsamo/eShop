@@ -2,7 +2,7 @@ name: Deploy eShop to K3s
 
 on:
   push:
-    branches: [ "deploy" ] 
+    branches: [ "kube_Branch" ] 
 
 jobs:
   deploy:
@@ -19,6 +19,7 @@ jobs:
           key: ${{ secrets.SSH_SSH_KEY }} 
           script: |
             cd ~/eShop
-            git pull origin deploy
+            git pull origin kube_Branch
             chmod +x ./deploy.sh
             ./deploy.sh
+

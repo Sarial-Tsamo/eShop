@@ -35,17 +35,17 @@ public static class Extensions
         builder.Services.AddOptions<CatalogOptions>()
             .BindConfiguration(nameof(CatalogOptions));
 
-        // if (builder.Configuration["OllamaEnabled"] is string ollamaEnabled && bool.Parse(ollamaEnabled))
-        // {
-        //     builder.AddOllamaApiClient("embedding");
-        //     builder.AddEmbeddingGenerator();
-        // }
-        // else if (!string.IsNullOrWhiteSpace(builder.Configuration.GetConnectionString("textEmbeddingModel")))
-        // {
-        //     builder.AddOpenAIClientFromConfiguration("textEmbeddingModel");
-        //     builder.AddEmbeddingGenerator();
-        // }
+        if (builder.Configuration["OllamaEnabled"] is string ollamaEnabled && bool.Parse(ollamaEnabled))
+        {
+            builder.AddOllamaApiClient("embedding");
+            builder.AddEmbeddingGenerator();
+        }
+        else if (!string.IsNullOrWhiteSpace(builder.Configuration.GetConnectionString("textEmbeddingModel")))
+        {
+            builder.AddOpenAIClientFromConfiguration("textEmbeddingModel");
+            builder.AddEmbeddingGenerator();
+        }
 
-        // builder.Services.AddScoped<ICatalogAI, CatalogAI>();
+        builder.Services.AddScoped<ICatalogAI, CatalogAI>();
     }
 }

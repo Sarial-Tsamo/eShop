@@ -1,5 +1,5 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
-WORKDIR /src
+WORKDIR /app
 
 # Install wget and .NET 10.0 SDK
 RUN apt-get update && apt-get install -y wget && \
@@ -12,14 +12,21 @@ RUN apt-get update && apt-get install -y wget && \
 ENV DOTNET_ROOT=/usr/share/dotnet
 ENV PATH=$PATH:/usr/share/dotnet
 
-# Copy central package versions
-COPY Directory.Packages.props ./
+# Copy solution files and central package versions
+COPY Directory.Packages.props .
 
-# Copy Identity.API project
-COPY src/Ordering.API/Ordering.API.csproj ./src/Ordering.API/
+# Copy all project files needed for restore
+COPY src/Ordering.API/Ordering.API.csproj src/Ordering.API/
+COPY src/Ordering.Domain/Ordering.Domain.csproj src/Ordering.Domain/
+COPY src/Ordering.Infrastructure/Ordering.Infrastructure.csproj src/Ordering.Infrastructure/
+COPY src/EventBusRabbitMQ/EventBusRabbitMQ.csproj src/EventBusRabbitMQ/
+COPY src/IntegrationEventLogEF/IntegrationEventLogEF.csproj src/IntegrationEventLogEF/
+COPY src/eShop.ServiceDefaults/eShop.ServiceDefaults.csproj src/eShop.ServiceDefaults/
+COPY src/EventBus/EventBus.csproj src/EventBus/
+COPY src/Shared/ src/Shared/
 
 # Restore dependencies
-RUN dotnet restore ./src/Ordering.API/Ordering.API.csproj
+RUN dotnet restore src/Ordering.API/Ordering.API.csproj
 
 # Copy everything
 COPY . .

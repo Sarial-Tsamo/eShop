@@ -1,5 +1,5 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
-WORKDIR /src
+WORKDIR /app
 
 # Install wget and .NET 10.0 SDK
 RUN apt-get update && apt-get install -y wget && \
@@ -12,14 +12,18 @@ RUN apt-get update && apt-get install -y wget && \
 ENV DOTNET_ROOT=/usr/share/dotnet
 ENV PATH=$PATH:/usr/share/dotnet
 
-# Copy central package versions
-COPY Directory.Packages.props ./
+# Copy solution files and central package versions
+COPY Directory.Packages.props .
 
-# Copy OrderProcessor project
-COPY src/OrderProcessor/OrderProcessor.csproj ./src/OrderProcessor/
+# Copy all project files needed for restore
+COPY src/OrderProcessor/OrderProcessor.csproj src/OrderProcessor/
+COPY src/EventBusRabbitMQ/EventBusRabbitMQ.csproj src/EventBusRabbitMQ/
+COPY src/eShop.ServiceDefaults/eShop.ServiceDefaults.csproj src/eShop.ServiceDefaults/
+COPY src/EventBus/EventBus.csproj src/EventBus/
+COPY src/Shared/ src/Shared/
 
 # Restore dependencies
-RUN dotnet restore ./src/OrderProcessor/OrderProcessor.csproj
+RUN dotnet restore src/OrderProcessor/OrderProcessor.csproj
 
 # Copy everything
 COPY . .

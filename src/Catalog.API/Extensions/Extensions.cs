@@ -1,4 +1,5 @@
 ﻿using eShop.Catalog.API.Services;
+using Microsoft.Extensions.AI;
 
 public static class Extensions
 {
@@ -37,13 +38,13 @@ public static class Extensions
 
         if (builder.Configuration["OllamaEnabled"] is string ollamaEnabled && bool.Parse(ollamaEnabled))
         {
-            builder.AddOllamaApiClient("embedding");
-            builder.AddEmbeddingGenerator();
+            builder.AddOllamaApiClient("embedding")
+                   .AddEmbeddingGenerator();
         }
         else if (!string.IsNullOrWhiteSpace(builder.Configuration.GetConnectionString("textEmbeddingModel")))
         {
-            builder.AddOpenAIClientFromConfiguration("textEmbeddingModel");
-            builder.AddEmbeddingGenerator();
+            builder.AddOpenAIClientFromConfiguration("textEmbeddingModel")
+                   .AddEmbeddingGenerator();
         }
 
         builder.Services.AddScoped<ICatalogAI, CatalogAI>();

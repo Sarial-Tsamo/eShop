@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Linq;
 using Microsoft.Extensions.AI;
 using Pgvector;
 
@@ -58,9 +59,14 @@ public sealed class CatalogAI : ICatalogAI
         {
             long timestamp = Stopwatch.GetTimestamp();
 
-            var embedding = await _embeddingGenerator!.GenerateAsync(text);
-            var vector = embedding.Vector;
-            vector = vector[0..EmbeddingDimensions];
+            GeneratedEmbeddings<Embedding<float>> embeddings = await _embeddingGenerator!.GenerateAsync(new[] { text });
+            var embedding = embeddings.FirstOrDefault();
+            if (embedding is null)
+            {
+                return null;
+            }
+
+            var vector = embedding.Vector[0..EmbeddingDimensions];
 
             if (_logger.IsEnabled(LogLevel.Trace))
             {

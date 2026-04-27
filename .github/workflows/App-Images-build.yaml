@@ -5,7 +5,7 @@ on:
     branches: [ main, kube_Branch ]
     paths:
       - "src/**"
-      - ".github/workflows/webapp-build.yaml"
+      - ".github/workflows/**"
   workflow_dispatch:
   
 

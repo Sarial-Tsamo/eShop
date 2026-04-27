@@ -5,6 +5,7 @@ on:
     branches: [ main ]
     paths:
       - "src/WebApp/**"
+      - "webapp-build.yml"
   
 
 jobs:
@@ -23,32 +24,37 @@ jobs:
 
       - name: Build and Push Catalog.API
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/eshop-catalog:latest -f src/Catalog.API/Dockerfile .
-          docker push ${{ secrets.DOCKER_USERNAME }}/eshop-catalog:latest
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/catalog-api:latest -f src/Catalog.API/Dockerfile .
+          docker push ${{ secrets.DOCKER_USERNAME }}/catalog-api:latest
 
       - name: Build and Push Basket.API
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/eshop-basket:latest -f src/Basket.API/Dockerfile .
-          docker push ${{ secrets.DOCKER_USERNAME }}/eshop-basket:latest
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/basket-api:latest -f src/Basket.API/Dockerfile .
+          docker push ${{ secrets.DOCKER_USERNAME }}/basket-api:latest
 
       - name: Build and Push Ordering.API
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/eshop-ordering:latest -f src/Ordering.API/Dockerfile .
-          docker push ${{ secrets.DOCKER_USERNAME }}/eshop-ordering:latest
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/ordering-api:latest -f src/Ordering.API/Dockerfile .
+          docker push ${{ secrets.DOCKER_USERNAME }}/ordering-api:latest
 
       - name: Build and Push Identity.API
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/eshop-identity:latest -f src/Identity.API/Dockerfile .
-          docker push ${{ secrets.DOCKER_USERNAME }}/eshop-identity:latest
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/identity-api:latest -f src/Identity.API/Dockerfile .
+          docker push ${{ secrets.DOCKER_USERNAME }}/identity-api:latest
 
       - name: Build and Push OrderProcessor
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/eshop-orderprocessor:latest -f src/OrderProcessor/Dockerfile .
-          docker push ${{ secrets.DOCKER_USERNAME }}/eshop-orderprocessor:latest
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/orderprocessor:latest -f src/OrderProcessor/Dockerfile .
+          docker push ${{ secrets.DOCKER_USERNAME }}/orderprocessor:latest
 
       - name: Build and Push WebApp
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/eshop-webapp:latest -f src/WebApp/Dockerfile .
-          docker push ${{ secrets.DOCKER_USERNAME }}/eshop-webapp:latest
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/webapp:latest -f src/WebApp/Dockerfile .
+          docker push ${{ secrets.DOCKER_USERNAME }}/webapp:latest
+
+      # - name: Build and Push Payment-processor
+      #   run: |
+      #     docker build -t ${{ secrets.DOCKER_USERNAME }}/payment-processor:latest -f src/Payment-processor/Dockerfile .
+      #     docker push ${{ secrets.DOCKER_USERNAME }}/payment-processor:latest
 
     

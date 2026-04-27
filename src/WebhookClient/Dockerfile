@@ -14,17 +14,17 @@ ENV PATH=$PATH:/usr/share/dotnet
 # Copy central package versions
 COPY Directory.Packages.props ./
 
-# Copy Identity.API project
-COPY src/Identity.API/Identity.API.csproj ./src/Identity.API/
+# Copy WebhookClient project
+COPY src/WebhookClient/WebhookClient.csproj ./src/WebhookClient/
 
 # Restore dependencies
-RUN dotnet restore ./src/Identity.API/Identity.API.csproj
+RUN dotnet restore ./src/WebhookClient/WebhookClient.csproj
 
 # Copy everything
 COPY . .
 
-# Publish Identity.API
-RUN dotnet publish ./src/Identity.API/Identity.API.csproj \
+# Publish WebhookClient
+RUN dotnet publish ./src/WebhookClient/WebhookClient.csproj \
     -c Release \
     -o /app/publish \
     /p:UseAppHost=false
@@ -43,9 +43,10 @@ ENV DOTNET_ROOT=/usr/share/dotnet
 ENV PATH=$PATH:/usr/share/dotnet
 
 COPY --from=build /app/publish .
-
 EXPOSE 80
 ENV ASPNETCORE_URLS=http://+:80
 ENV ASPNETCORE_ENVIRONMENT=Production
 
-ENTRYPOINT ["dotnet", "Identity.API.dll"]
+RUN apt-get update && apt-get install -y libgssapi-krb5-2
+
+ENTRYPOINT ["dotnet", "WebhookClient.dll"]

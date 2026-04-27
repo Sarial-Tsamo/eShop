@@ -45,17 +45,27 @@ jobs:
 
       - name: Build and Push OrderProcessor
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/orderprocessor:latest -f src/OrderProcessor/Dockerfile .
-          docker push ${{ secrets.DOCKER_USERNAME }}/orderprocessor:latest
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/order-processor:latest -f src/OrderProcessor/Dockerfile .
+          docker push ${{ secrets.DOCKER_USERNAME }}/order-processor:latest
 
       - name: Build and Push WebApp
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/webapp:latest -f src/WebApp/Dockerfile .
           docker push ${{ secrets.DOCKER_USERNAME }}/webapp:latest
 
-      # - name: Build and Push Payment-processor
-      #   run: |
-      #     docker build -t ${{ secrets.DOCKER_USERNAME }}/payment-processor:latest -f src/Payment-processor/Dockerfile .
-      #     docker push ${{ secrets.DOCKER_USERNAME }}/payment-processor:latest
+      - name: Build and Push PaymentProcessor
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/payment-processor:latest -f src/PaymentProcessor/Dockerfile .
+          docker push ${{ secrets.DOCKER_USERNAME }}/payment-processor:latest
+
+      - name: Build and Push Webhooks.API
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/webhooks-api:latest -f src/Webhooks.API/Dockerfile .
+          docker push ${{ secrets.DOCKER_USERNAME }}/webhooks-api:latest
+
+      - name: Build and Push WebhookClient
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/webhooksclient:latest -f src/WebhookClient/Dockerfile .
+          docker push ${{ secrets.DOCKER_USERNAME }}/webhooksclient:latest
 
     

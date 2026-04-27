@@ -3,9 +3,9 @@ name: Build and Push Docker Images
 on:
   push:
     branches: [ main ]
-    # paths:
-    #   - "src/**"
-    #   - "webapp-build.yml"
+    paths:
+      - "src/**"
+      - ".github/workflows/webapp-build.yaml"
   workflow_dispatch:
   
 

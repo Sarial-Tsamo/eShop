@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y wget && \
 
 # Set DOTNET_ROOT
 ENV DOTNET_ROOT=/usr/share/dotnet
-ENV PATH=$PATH:/usr/share/dotnet
+ENV PATH=/usr/share/dotnet:$PATH
 
 # Copy solution files and central package versions
 COPY Directory.Packages.props .
@@ -44,7 +44,7 @@ RUN apt-get update && apt-get install -y wget && \
 
 # Set DOTNET_ROOT
 ENV DOTNET_ROOT=/usr/share/dotnet
-ENV PATH=$PATH:/usr/share/dotnet
+ENV PATH=/usr/share/dotnet:$PATH
 
 COPY --from=build /app/publish .
 EXPOSE 80

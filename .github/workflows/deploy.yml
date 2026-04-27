@@ -12,14 +12,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Execute Remote Deployment Script
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.VM_SSH_IP }}      
-          username: ubuntu
-          key: ${{ secrets.VM_SSH_KEY }} 
-          script: |
-            cd ~/eShop
-            git pull origin kube_Branch
-            chmod +x ./deploy.sh
-            ./deploy.sh
+        run: |
+          cd ~/eShop
+          git pull origin kube_Branch
+          chmod +x ./deploy.sh
+          ./deploy.sh
 

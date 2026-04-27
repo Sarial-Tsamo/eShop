@@ -1,0 +1,330 @@
+﻿2026-04-27T20:30:37.2577914Z Current runner version: '2.333.1'
+2026-04-27T20:30:37.2602048Z ##[group]Runner Image Provisioner
+2026-04-27T20:30:37.2602937Z Hosted Compute Agent
+2026-04-27T20:30:37.2603515Z Version: 20260213.493
+2026-04-27T20:30:37.2604115Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+2026-04-27T20:30:37.2604845Z Build Date: 2026-02-13T00:28:41Z
+2026-04-27T20:30:37.2605519Z Worker ID: {d83d9329-66dd-4810-88aa-1d86f10097a7}
+2026-04-27T20:30:37.2606151Z Azure Region: westus
+2026-04-27T20:30:37.2606714Z ##[endgroup]
+2026-04-27T20:30:37.2608089Z ##[group]Operating System
+2026-04-27T20:30:37.2608704Z Ubuntu
+2026-04-27T20:30:37.2609547Z 24.04.4
+2026-04-27T20:30:37.2610059Z LTS
+2026-04-27T20:30:37.2610524Z ##[endgroup]
+2026-04-27T20:30:37.2611062Z ##[group]Runner Image
+2026-04-27T20:30:37.2611642Z Image: ubuntu-24.04
+2026-04-27T20:30:37.2612187Z Version: 20260413.86.1
+2026-04-27T20:30:37.2613396Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260413.86/images/ubuntu/Ubuntu2404-Readme.md
+2026-04-27T20:30:37.2614830Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260413.86
+2026-04-27T20:30:37.2615789Z ##[endgroup]
+2026-04-27T20:30:37.2616901Z ##[group]GITHUB_TOKEN Permissions
+2026-04-27T20:30:37.2618866Z Contents: read
+2026-04-27T20:30:37.2619678Z Metadata: read
+2026-04-27T20:30:37.2620200Z Packages: read
+2026-04-27T20:30:37.2620721Z ##[endgroup]
+2026-04-27T20:30:37.2623102Z Secret source: Actions
+2026-04-27T20:30:37.2623815Z Prepare workflow directory
+2026-04-27T20:30:37.2957949Z Prepare all required actions
+2026-04-27T20:30:37.2998020Z Getting action download info
+2026-04-27T20:30:37.8042742Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-04-27T20:30:37.9349692Z Download action repository 'docker/login-action@v3' (SHA:c94ce9fb468520275223c153574b00df6fe4bcc9)
+2026-04-27T20:30:39.0091886Z Complete job name: build
+2026-04-27T20:30:39.0863156Z ##[group]Run actions/checkout@v4
+2026-04-27T20:30:39.0864072Z with:
+2026-04-27T20:30:39.0864550Z   repository: Sarial-Tsamo/eShop
+2026-04-27T20:30:39.0865279Z   token: ***
+2026-04-27T20:30:39.0865708Z   ssh-strict: true
+2026-04-27T20:30:39.0866142Z   ssh-user: git
+2026-04-27T20:30:39.0866572Z   persist-credentials: true
+2026-04-27T20:30:39.0867053Z   clean: true
+2026-04-27T20:30:39.0867490Z   sparse-checkout-cone-mode: true
+2026-04-27T20:30:39.0868010Z   fetch-depth: 1
+2026-04-27T20:30:39.0868430Z   fetch-tags: false
+2026-04-27T20:30:39.0868856Z   show-progress: true
+2026-04-27T20:30:39.0869784Z   lfs: false
+2026-04-27T20:30:39.0870223Z   submodules: false
+2026-04-27T20:30:39.0870691Z   set-safe-directory: true
+2026-04-27T20:30:39.0871480Z ##[endgroup]
+2026-04-27T20:30:39.1967743Z Syncing repository: Sarial-Tsamo/eShop
+2026-04-27T20:30:39.1969829Z ##[group]Getting Git version info
+2026-04-27T20:30:39.1970568Z Working directory is '/home/runner/work/eShop/eShop'
+2026-04-27T20:30:39.1971638Z [command]/usr/bin/git version
+2026-04-27T20:30:39.2009479Z git version 2.53.0
+2026-04-27T20:30:39.2036008Z ##[endgroup]
+2026-04-27T20:30:39.2057317Z Temporarily overriding HOME='/home/runner/work/_temp/c0ab29f1-adf8-49a8-9d4c-7095fb3a9de9' before making global git config changes
+2026-04-27T20:30:39.2060047Z Adding repository directory to the temporary git global config as a safe directory
+2026-04-27T20:30:39.2062736Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/eShop/eShop
+2026-04-27T20:30:39.2095521Z Deleting the contents of '/home/runner/work/eShop/eShop'
+2026-04-27T20:30:39.2099357Z ##[group]Initializing the repository
+2026-04-27T20:30:39.2103364Z [command]/usr/bin/git init /home/runner/work/eShop/eShop
+2026-04-27T20:30:39.2194920Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-04-27T20:30:39.2196503Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-04-27T20:30:39.2197662Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-04-27T20:30:39.2198644Z hint: call:
+2026-04-27T20:30:39.2199786Z hint:
+2026-04-27T20:30:39.2200367Z hint: 	git config --global init.defaultBranch <name>
+2026-04-27T20:30:39.2200997Z hint:
+2026-04-27T20:30:39.2201607Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-04-27T20:30:39.2203010Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-04-27T20:30:39.2203791Z hint:
+2026-04-27T20:30:39.2204200Z hint: 	git branch -m <name>
+2026-04-27T20:30:39.2204688Z hint:
+2026-04-27T20:30:39.2205353Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-04-27T20:30:39.2206434Z Initialized empty Git repository in /home/runner/work/eShop/eShop/.git/
+2026-04-27T20:30:39.2209524Z [command]/usr/bin/git remote add origin https://github.com/Sarial-Tsamo/eShop
+2026-04-27T20:30:39.2241411Z ##[endgroup]
+2026-04-27T20:30:39.2242202Z ##[group]Disabling automatic garbage collection
+2026-04-27T20:30:39.2245703Z [command]/usr/bin/git config --local gc.auto 0
+2026-04-27T20:30:39.2281148Z ##[endgroup]
+2026-04-27T20:30:39.2281871Z ##[group]Setting up auth
+2026-04-27T20:30:39.2282619Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-04-27T20:30:39.2316036Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-04-27T20:30:39.2610640Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-04-27T20:30:39.2640272Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-04-27T20:30:39.2859388Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-04-27T20:30:39.2891743Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-04-27T20:30:39.3122113Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-04-27T20:30:39.3161979Z ##[endgroup]
+2026-04-27T20:30:39.3162734Z ##[group]Fetching the repository
+2026-04-27T20:30:39.3174108Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +bf99c9d989adbb854cd3814b487be99140993e14:refs/remotes/origin/main
+2026-04-27T20:30:41.9417562Z From https://github.com/Sarial-Tsamo/eShop
+2026-04-27T20:30:41.9420187Z  * [new ref]         bf99c9d989adbb854cd3814b487be99140993e14 -> origin/main
+2026-04-27T20:30:41.9447583Z ##[endgroup]
+2026-04-27T20:30:41.9449727Z ##[group]Determining the checkout info
+2026-04-27T20:30:41.9451652Z ##[endgroup]
+2026-04-27T20:30:41.9456509Z [command]/usr/bin/git sparse-checkout disable
+2026-04-27T20:30:41.9495396Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-04-27T20:30:41.9525608Z ##[group]Checking out the ref
+2026-04-27T20:30:41.9526893Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-04-27T20:30:42.0352904Z Switched to a new branch 'main'
+2026-04-27T20:30:42.0354719Z branch 'main' set up to track 'origin/main'.
+2026-04-27T20:30:42.0367852Z ##[endgroup]
+2026-04-27T20:30:42.0405725Z [command]/usr/bin/git log -1 --format=%H
+2026-04-27T20:30:42.0427706Z bf99c9d989adbb854cd3814b487be99140993e14
+2026-04-27T20:30:42.0720034Z ##[group]Run docker/login-action@v3
+2026-04-27T20:30:42.0721212Z with:
+2026-04-27T20:30:42.0722301Z   username: ***
+2026-04-27T20:30:42.0723381Z   password: ***
+2026-04-27T20:30:42.0724245Z   logout: true
+2026-04-27T20:30:42.0725110Z ##[endgroup]
+2026-04-27T20:30:42.3919780Z Logging into docker.io...
+2026-04-27T20:30:42.9445069Z Login Succeeded!
+2026-04-27T20:30:42.9587691Z ##[group]Run docker build -t ***/catalog-api:latest -f src/Catalog.API/Dockerfile .
+2026-04-27T20:30:42.9588506Z [36;1mdocker build -t ***/catalog-api:latest -f src/Catalog.API/Dockerfile .[0m
+2026-04-27T20:30:42.9589875Z [36;1mdocker push ***/catalog-api:latest[0m
+2026-04-27T20:30:42.9615951Z shell: /usr/bin/bash -e {0}
+2026-04-27T20:30:42.9616324Z ##[endgroup]
+2026-04-27T20:30:43.2648392Z #0 building with "default" instance using docker driver
+2026-04-27T20:30:43.2648951Z 
+2026-04-27T20:30:43.2649485Z #1 [internal] load build definition from Dockerfile
+2026-04-27T20:30:43.2650040Z #1 transferring dockerfile: 1.30kB done
+2026-04-27T20:30:43.2650402Z #1 DONE 0.0s
+2026-04-27T20:30:43.2650580Z 
+2026-04-27T20:30:43.2650868Z #2 [internal] load metadata for mcr.microsoft.com/dotnet/aspnet:10.0
+2026-04-27T20:30:43.2651386Z #2 DONE 0.1s
+2026-04-27T20:30:43.2651542Z 
+2026-04-27T20:30:43.2651738Z #3 [internal] load metadata for mcr.microsoft.com/dotnet/sdk:10.0
+2026-04-27T20:30:43.4416760Z #3 DONE 0.3s
+2026-04-27T20:30:43.5662042Z 
+2026-04-27T20:30:43.5663108Z #4 [internal] load .dockerignore
+2026-04-27T20:30:43.5663999Z #4 transferring context: 2B done
+2026-04-27T20:30:43.5675259Z #4 DONE 0.0s
+2026-04-27T20:30:43.5689622Z 
+2026-04-27T20:30:43.5717073Z #5 [build  1/12] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:8a90a473da5205a16979de99d2fc20975e922c68304f5c79d564e666dc3982fc
+2026-04-27T20:30:43.5740364Z #5 resolve mcr.microsoft.com/dotnet/sdk:10.0@sha256:8a90a473da5205a16979de99d2fc20975e922c68304f5c79d564e666dc3982fc done
+2026-04-27T20:30:43.5760490Z #5 sha256:36cd2f00ec659f21cd63724ca026cd3c64238edefa726fb3a8fd1686ce7a157e 5.83kB / 5.83kB done
+2026-04-27T20:30:43.5761585Z #5 sha256:b40150c1c2717d324cdb17278c8efdfa4dfcd2ffe083e976f0bcedf31115f081 13.63MB / 29.73MB 0.1s
+2026-04-27T20:30:43.5762570Z #5 sha256:d47ce24876437904e26a4e0c1a183649aebed354c3b1be6a68ac7e9052cf6703 8.39MB / 36.66MB 0.1s
+2026-04-27T20:30:43.5763738Z #5 sha256:8a90a473da5205a16979de99d2fc20975e922c68304f5c79d564e666dc3982fc 1.08kB / 1.08kB done
+2026-04-27T20:30:43.5764912Z #5 sha256:6d7f69bc7bc9d4510ca255977b1f53ce52a79307e048a91450b2aecd63627cc3 2.42kB / 2.42kB done
+2026-04-27T20:30:43.5766225Z #5 sha256:33919016b1bbea02a7f751a9ca5f6b31f1dffd1f5f0134f44b29d8bb4fbc33a6 16.78MB / 16.82MB 0.1s
+2026-04-27T20:30:43.5767473Z #5 sha256:27640c99102cbc65ab781f867595024e751151897ed80eab17cc75adb22bb3c2 3.56kB / 3.56kB 0.0s done
+2026-04-27T20:30:43.7720667Z #5 sha256:b40150c1c2717d324cdb17278c8efdfa4dfcd2ffe083e976f0bcedf31115f081 29.73MB / 29.73MB 0.2s done
+2026-04-27T20:30:43.7722370Z #5 sha256:d47ce24876437904e26a4e0c1a183649aebed354c3b1be6a68ac7e9052cf6703 36.66MB / 36.66MB 0.2s done
+2026-04-27T20:30:43.7723940Z #5 sha256:33919016b1bbea02a7f751a9ca5f6b31f1dffd1f5f0134f44b29d8bb4fbc33a6 16.82MB / 16.82MB 0.1s done
+2026-04-27T20:30:43.7725331Z #5 sha256:72f9feecfdbd428c84b871f5d41a165172772583b59cc436386f1e76c3f81f5c 154B / 154B 0.1s done
+2026-04-27T20:30:43.7726603Z #5 sha256:a51402fb1ecf83c9206b43cc071827d9deca95ed6953b7205612720c390c86fb 12.77MB / 12.77MB 0.2s done
+2026-04-27T20:30:43.7737052Z #5 sha256:6d59edda6ae43387a264a294e85fa356b5e5850d8f7b17a44f509b1c0d53e241 23.07MB / 23.81MB 0.3s
+2026-04-27T20:30:43.7766242Z #5 sha256:2920bdd46f0067e317cdbdad1d12c147f2ffe785f8e435a0c7e9a871bdda68a6 2.10MB / 191.53MB 0.3s
+2026-04-27T20:30:43.7800304Z #5 sha256:30f227425bcd4f5c90662a49f27f2edb295df21e9f04c54d643ec21e2a073cbd 0B / 498B 0.3s
+2026-04-27T20:30:43.8761029Z #5 sha256:6d59edda6ae43387a264a294e85fa356b5e5850d8f7b17a44f509b1c0d53e241 23.81MB / 23.81MB 0.3s done
+2026-04-27T20:30:43.8762550Z #5 sha256:2920bdd46f0067e317cdbdad1d12c147f2ffe785f8e435a0c7e9a871bdda68a6 31.46MB / 191.53MB 0.4s
+2026-04-27T20:30:43.8764113Z #5 sha256:30f227425bcd4f5c90662a49f27f2edb295df21e9f04c54d643ec21e2a073cbd 498B / 498B 0.3s done
+2026-04-27T20:30:43.8765651Z #5 sha256:5f2a92c0431ddbacd726d69b88bd36ffd689c12878acd7b1796e0c3a3cc9668b 16.78MB / 18.07MB 0.4s
+2026-04-27T20:30:44.0595767Z #5 ...
+2026-04-27T20:30:44.0598814Z 
+2026-04-27T20:30:44.0600055Z #6 [internal] load build context
+2026-04-27T20:30:44.0600835Z #6 transferring context: 31.28MB 0.4s done
+2026-04-27T20:30:44.0601219Z #6 DONE 0.4s
+2026-04-27T20:30:44.0601530Z 
+2026-04-27T20:30:44.0601958Z #5 [build  1/12] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:8a90a473da5205a16979de99d2fc20975e922c68304f5c79d564e666dc3982fc
+2026-04-27T20:30:44.0603052Z #5 sha256:2920bdd46f0067e317cdbdad1d12c147f2ffe785f8e435a0c7e9a871bdda68a6 62.91MB / 191.53MB 0.5s
+2026-04-27T20:30:44.0603774Z #5 sha256:5f2a92c0431ddbacd726d69b88bd36ffd689c12878acd7b1796e0c3a3cc9668b 18.07MB / 18.07MB 0.4s done
+2026-04-27T20:30:44.1632066Z #5 sha256:2920bdd46f0067e317cdbdad1d12c147f2ffe785f8e435a0c7e9a871bdda68a6 88.08MB / 191.53MB 0.6s
+2026-04-27T20:30:44.1634960Z #5 extracting sha256:b40150c1c2717d324cdb17278c8efdfa4dfcd2ffe083e976f0bcedf31115f081 0.4s
+2026-04-27T20:30:44.2652480Z #5 sha256:2920bdd46f0067e317cdbdad1d12c147f2ffe785f8e435a0c7e9a871bdda68a6 148.90MB / 191.53MB 0.8s
+2026-04-27T20:30:44.3652705Z #5 sha256:2920bdd46f0067e317cdbdad1d12c147f2ffe785f8e435a0c7e9a871bdda68a6 184.55MB / 191.53MB 0.9s
+2026-04-27T20:30:44.6506938Z #5 sha256:2920bdd46f0067e317cdbdad1d12c147f2ffe785f8e435a0c7e9a871bdda68a6 191.53MB / 191.53MB 1.1s done
+2026-04-27T20:30:45.2711417Z #5 extracting sha256:33919016b1bbea02a7f751a9ca5f6b31f1dffd1f5f0134f44b29d8bb4fbc33a6 0.2s
+2026-04-27T20:30:45.8815649Z #5 extracting sha256:d47ce24876437904e26a4e0c1a183649aebed354c3b1be6a68ac7e9052cf6703 0.2s
+2026-04-27T20:30:46.2358214Z #5 extracting sha256:a51402fb1ecf83c9206b43cc071827d9deca95ed6953b7205612720c390c86fb
+2026-04-27T20:30:46.4210114Z #5 ...
+2026-04-27T20:30:46.4210440Z 
+2026-04-27T20:30:46.4212030Z #7 [stage-1 1/4] FROM mcr.microsoft.com/dotnet/aspnet:10.0@sha256:55e37c7795bfaf6b9cc5d77c155811d9569f529d86e20647704bc1d7dd9741d4
+2026-04-27T20:30:46.4214157Z #7 resolve mcr.microsoft.com/dotnet/aspnet:10.0@sha256:55e37c7795bfaf6b9cc5d77c155811d9569f529d86e20647704bc1d7dd9741d4 done
+2026-04-27T20:30:46.4215802Z #7 sha256:f328c70651395189836bba64f044895274f3b598a8cd8de2e91ebc6465f47535 3.12kB / 3.12kB done
+2026-04-27T20:30:46.4217306Z #7 sha256:33919016b1bbea02a7f751a9ca5f6b31f1dffd1f5f0134f44b29d8bb4fbc33a6 16.82MB / 16.82MB 0.1s done
+2026-04-27T20:30:46.4218895Z #7 sha256:27640c99102cbc65ab781f867595024e751151897ed80eab17cc75adb22bb3c2 3.56kB / 3.56kB 0.0s done
+2026-04-27T20:30:46.4220878Z #7 sha256:55e37c7795bfaf6b9cc5d77c155811d9569f529d86e20647704bc1d7dd9741d4 1.08kB / 1.08kB done
+2026-04-27T20:30:46.4222432Z #7 sha256:fc1c5573d92542bb05785498ed2bec48bb429edefd7a0c32cee934329f104926 1.58kB / 1.58kB done
+2026-04-27T20:30:46.4224091Z #7 sha256:b40150c1c2717d324cdb17278c8efdfa4dfcd2ffe083e976f0bcedf31115f081 29.73MB / 29.73MB 0.2s done
+2026-04-27T20:30:46.4299321Z #7 sha256:d47ce24876437904e26a4e0c1a183649aebed354c3b1be6a68ac7e9052cf6703 36.66MB / 36.66MB 0.2s done
+2026-04-27T20:30:46.4300502Z #7 sha256:72f9feecfdbd428c84b871f5d41a165172772583b59cc436386f1e76c3f81f5c 154B / 154B 0.1s done
+2026-04-27T20:30:46.4301686Z #7 sha256:a51402fb1ecf83c9206b43cc071827d9deca95ed6953b7205612720c390c86fb 12.77MB / 12.77MB 0.2s done
+2026-04-27T20:30:46.4302848Z #7 extracting sha256:b40150c1c2717d324cdb17278c8efdfa4dfcd2ffe083e976f0bcedf31115f081 1.1s done
+2026-04-27T20:30:46.4303965Z #7 extracting sha256:33919016b1bbea02a7f751a9ca5f6b31f1dffd1f5f0134f44b29d8bb4fbc33a6 0.5s done
+2026-04-27T20:30:46.4305026Z #7 extracting sha256:27640c99102cbc65ab781f867595024e751151897ed80eab17cc75adb22bb3c2 done
+2026-04-27T20:30:46.4306070Z #7 extracting sha256:d47ce24876437904e26a4e0c1a183649aebed354c3b1be6a68ac7e9052cf6703 0.4s done
+2026-04-27T20:30:46.4307120Z #7 extracting sha256:72f9feecfdbd428c84b871f5d41a165172772583b59cc436386f1e76c3f81f5c done
+2026-04-27T20:30:46.4308184Z #7 extracting sha256:a51402fb1ecf83c9206b43cc071827d9deca95ed6953b7205612720c390c86fb 0.1s done
+2026-04-27T20:30:46.4308928Z #7 DONE 2.9s
+2026-04-27T20:30:46.4331908Z 
+2026-04-27T20:30:46.4332102Z #8 [stage-1 2/4] WORKDIR /app
+2026-04-27T20:30:46.4332448Z #8 DONE 0.0s
+2026-04-27T20:30:46.4332555Z 
+2026-04-27T20:30:46.4333198Z #5 [build  1/12] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:8a90a473da5205a16979de99d2fc20975e922c68304f5c79d564e666dc3982fc
+2026-04-27T20:30:46.4334268Z #5 extracting sha256:6d59edda6ae43387a264a294e85fa356b5e5850d8f7b17a44f509b1c0d53e241 0.1s
+2026-04-27T20:30:47.2236309Z #5 extracting sha256:6d59edda6ae43387a264a294e85fa356b5e5850d8f7b17a44f509b1c0d53e241 0.8s done
+2026-04-27T20:30:47.2237521Z #5 extracting sha256:2920bdd46f0067e317cdbdad1d12c147f2ffe785f8e435a0c7e9a871bdda68a6
+2026-04-27T20:30:50.7126083Z #5 extracting sha256:2920bdd46f0067e317cdbdad1d12c147f2ffe785f8e435a0c7e9a871bdda68a6 3.3s done
+2026-04-27T20:30:51.6567198Z #5 extracting sha256:30f227425bcd4f5c90662a49f27f2edb295df21e9f04c54d643ec21e2a073cbd
+2026-04-27T20:30:51.7764203Z #5 extracting sha256:30f227425bcd4f5c90662a49f27f2edb295df21e9f04c54d643ec21e2a073cbd done
+2026-04-27T20:30:51.7765308Z #5 extracting sha256:5f2a92c0431ddbacd726d69b88bd36ffd689c12878acd7b1796e0c3a3cc9668b 0.1s
+2026-04-27T20:30:52.0848204Z #5 extracting sha256:5f2a92c0431ddbacd726d69b88bd36ffd689c12878acd7b1796e0c3a3cc9668b 0.3s done
+2026-04-27T20:30:52.0849496Z #5 DONE 8.6s
+2026-04-27T20:30:52.0849696Z 
+2026-04-27T20:30:52.0849839Z #9 [build  2/12] WORKDIR /app
+2026-04-27T20:30:52.0850251Z #9 DONE 0.0s
+2026-04-27T20:30:52.0851123Z 
+2026-04-27T20:30:52.0851687Z #10 [build  3/12] COPY Directory.Packages.props .
+2026-04-27T20:30:52.0852167Z #10 DONE 0.0s
+2026-04-27T20:30:52.0852284Z 
+2026-04-27T20:30:52.0852738Z #11 [build  4/12] COPY src/Catalog.API/Catalog.API.csproj src/Catalog.API/
+2026-04-27T20:30:52.0853390Z #11 DONE 0.0s
+2026-04-27T20:30:52.0853573Z 
+2026-04-27T20:30:52.0853941Z #12 [build  5/12] COPY src/EventBusRabbitMQ/EventBusRabbitMQ.csproj src/EventBusRabbitMQ/
+2026-04-27T20:30:52.0854350Z #12 DONE 0.0s
+2026-04-27T20:30:52.0854453Z 
+2026-04-27T20:30:52.0854742Z #13 [build  6/12] COPY src/IntegrationEventLogEF/IntegrationEventLogEF.csproj src/IntegrationEventLogEF/
+2026-04-27T20:30:52.0855351Z #13 DONE 0.0s
+2026-04-27T20:30:52.2635134Z 
+2026-04-27T20:30:52.2636343Z #14 [build  7/12] COPY src/eShop.ServiceDefaults/eShop.ServiceDefaults.csproj src/eShop.ServiceDefaults/
+2026-04-27T20:30:52.2637418Z #14 DONE 0.0s
+2026-04-27T20:30:52.2637610Z 
+2026-04-27T20:30:52.2637911Z #15 [build  8/12] COPY src/EventBus/EventBus.csproj src/EventBus/
+2026-04-27T20:30:52.2638450Z #15 DONE 0.0s
+2026-04-27T20:30:52.2638623Z 
+2026-04-27T20:30:52.2638798Z #16 [build  9/12] COPY src/Shared/ src/Shared/
+2026-04-27T20:30:52.2639450Z #16 DONE 0.0s
+2026-04-27T20:30:52.2639623Z 
+2026-04-27T20:30:52.2639911Z #17 [build 10/12] RUN dotnet restore src/Catalog.API/Catalog.API.csproj
+2026-04-27T20:30:52.8802873Z #17 0.767   Determining projects to restore...
+2026-04-27T20:30:55.2541763Z #17 3.141   Restored /app/src/EventBus/EventBus.csproj (in 908 ms).
+2026-04-27T20:30:55.6103458Z #17 3.497 /app/src/eShop.ServiceDefaults/eShop.ServiceDefaults.csproj : warning NU1902: Package 'OpenTelemetry.Api' 1.14.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g94r-2vxg-569j [/app/src/Catalog.API/Catalog.API.csproj]
+2026-04-27T20:30:55.7276832Z #17 3.498 /app/src/eShop.ServiceDefaults/eShop.ServiceDefaults.csproj : warning NU1902: Package 'OpenTelemetry.Exporter.OpenTelemetryProtocol' 1.14.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-mr8r-92fq-pj8p [/app/src/Catalog.API/Catalog.API.csproj]
+2026-04-27T20:30:55.7281236Z #17 3.498 /app/src/eShop.ServiceDefaults/eShop.ServiceDefaults.csproj : warning NU1902: Package 'OpenTelemetry.Exporter.OpenTelemetryProtocol' 1.14.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-q834-8qmm-v933 [/app/src/Catalog.API/Catalog.API.csproj]
+2026-04-27T20:30:55.7284152Z #17 3.615   Restored /app/src/eShop.ServiceDefaults/eShop.ServiceDefaults.csproj (in 1.76 sec).
+2026-04-27T20:30:56.7008843Z #17 4.588   Restored /app/src/IntegrationEventLogEF/IntegrationEventLogEF.csproj (in 1.15 sec).
+2026-04-27T20:30:57.0803004Z #17 4.815 /app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj : warning NU1608: Detected package version outside of dependency constraint: Aspire.RabbitMQ.Client 9.1.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved. [/app/src/Catalog.API/Catalog.API.csproj]
+2026-04-27T20:30:57.0807580Z #17 4.816 /app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj : warning NU1608: Detected package version outside of dependency constraint: AspNetCore.HealthChecks.Rabbitmq.v6 9.0.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved. [/app/src/Catalog.API/Catalog.API.csproj]
+2026-04-27T20:30:57.0811761Z #17 4.817 /app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj : warning NU1902: Package 'OpenTelemetry.Api' 1.9.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g94r-2vxg-569j [/app/src/Catalog.API/Catalog.API.csproj]
+2026-04-27T20:30:57.2950179Z #17 5.182   Restored /app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj (in 3.12 sec).
+2026-04-27T20:30:58.0861588Z #17 5.973 /app/src/Catalog.API/Catalog.API.csproj : warning NU1603: Catalog.API depends on CommunityToolkit.Aspire.OllamaSharp (>= 9.1.0-beta.132) but CommunityToolkit.Aspire.OllamaSharp 9.1.0-beta.132 was not found. CommunityToolkit.Aspire.OllamaSharp 9.1.0 was resolved instead.
+2026-04-27T20:30:58.2249403Z #17 5.973 /app/src/Catalog.API/Catalog.API.csproj : warning NU1608: Detected package version outside of dependency constraint: Aspire.RabbitMQ.Client 9.1.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved.
+2026-04-27T20:30:58.2252529Z #17 5.973 /app/src/Catalog.API/Catalog.API.csproj : warning NU1608: Detected package version outside of dependency constraint: AspNetCore.HealthChecks.Rabbitmq.v6 9.0.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved.
+2026-04-27T20:30:58.2255183Z #17 5.974 /app/src/Catalog.API/Catalog.API.csproj : warning NU1902: Package 'KubernetesClient' 15.0.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-w7r3-mgwf-4mqq
+2026-04-27T20:30:58.2256565Z #17 5.974 /app/src/Catalog.API/Catalog.API.csproj : warning NU1902: Package 'OpenTelemetry.Api' 1.14.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g94r-2vxg-569j
+2026-04-27T20:30:58.2258150Z #17 5.974 /app/src/Catalog.API/Catalog.API.csproj : warning NU1902: Package 'OpenTelemetry.Exporter.OpenTelemetryProtocol' 1.14.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-mr8r-92fq-pj8p
+2026-04-27T20:30:58.2260185Z #17 5.974 /app/src/Catalog.API/Catalog.API.csproj : warning NU1902: Package 'OpenTelemetry.Exporter.OpenTelemetryProtocol' 1.14.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-q834-8qmm-v933
+2026-04-27T20:30:58.2261270Z #17 6.112   Restored /app/src/Catalog.API/Catalog.API.csproj (in 4.3 sec).
+2026-04-27T20:30:58.9022725Z #17 DONE 6.8s
+2026-04-27T20:30:59.0535147Z 
+2026-04-27T20:30:59.0535558Z #18 [build 11/12] COPY . .
+2026-04-27T20:30:59.0925074Z #18 DONE 0.2s
+2026-04-27T20:30:59.2438389Z 
+2026-04-27T20:30:59.2439684Z #19 [build 12/12] RUN dotnet publish ./src/Catalog.API/Catalog.API.csproj     -c Release     -o /app/publish     /p:UseAppHost=false
+2026-04-27T20:30:59.9691099Z #19 0.876   Determining projects to restore...
+2026-04-27T20:31:01.2024079Z #19 2.109 /app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj : warning NU1608: Detected package version outside of dependency constraint: Aspire.RabbitMQ.Client 9.1.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved. [/app/src/Catalog.API/Catalog.API.csproj]
+2026-04-27T20:31:01.2026217Z #19 2.109 /app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj : warning NU1608: Detected package version outside of dependency constraint: AspNetCore.HealthChecks.Rabbitmq.v6 9.0.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved. [/app/src/Catalog.API/Catalog.API.csproj]
+2026-04-27T20:31:01.3934156Z #19 2.300   Restored /app/src/IntegrationEventLogEF/IntegrationEventLogEF.csproj (in 338 ms).
+2026-04-27T20:31:01.3943772Z #19 2.300   Restored /app/src/EventBus/EventBus.csproj (in 338 ms).
+2026-04-27T20:31:01.5262970Z #19 2.300   Restored /app/src/eShop.ServiceDefaults/eShop.ServiceDefaults.csproj (in 338 ms).
+2026-04-27T20:31:01.5264451Z #19 2.325   Restored /app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj (in 338 ms).
+2026-04-27T20:31:01.5265698Z #19 2.432 /app/src/Catalog.API/Catalog.API.csproj : warning NU1603: Catalog.API depends on CommunityToolkit.Aspire.OllamaSharp (>= 9.1.0-beta.132) but CommunityToolkit.Aspire.OllamaSharp 9.1.0-beta.132 was not found. CommunityToolkit.Aspire.OllamaSharp 9.1.0 was resolved instead.
+2026-04-27T20:31:01.6658194Z #19 2.433 /app/src/Catalog.API/Catalog.API.csproj : warning NU1608: Detected package version outside of dependency constraint: Aspire.RabbitMQ.Client 9.1.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved.
+2026-04-27T20:31:01.6661064Z #19 2.433 /app/src/Catalog.API/Catalog.API.csproj : warning NU1608: Detected package version outside of dependency constraint: AspNetCore.HealthChecks.Rabbitmq.v6 9.0.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved.
+2026-04-27T20:31:01.6662170Z #19 2.572   Restored /app/src/Catalog.API/Catalog.API.csproj (in 257 ms).
+2026-04-27T20:31:01.9528331Z #19 2.859 /app/src/Catalog.API/Catalog.API.csproj : warning NU1603: Catalog.API depends on CommunityToolkit.Aspire.OllamaSharp (>= 9.1.0-beta.132) but CommunityToolkit.Aspire.OllamaSharp 9.1.0-beta.132 was not found. CommunityToolkit.Aspire.OllamaSharp 9.1.0 was resolved instead.
+2026-04-27T20:31:02.1033939Z #19 2.860 /app/src/Catalog.API/Catalog.API.csproj : warning NU1608: Detected package version outside of dependency constraint: Aspire.RabbitMQ.Client 9.1.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved.
+2026-04-27T20:31:02.1037663Z #19 2.860 /app/src/Catalog.API/Catalog.API.csproj : warning NU1608: Detected package version outside of dependency constraint: AspNetCore.HealthChecks.Rabbitmq.v6 9.0.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved.
+2026-04-27T20:31:02.7480249Z #19 3.655 /app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj : warning NU1608: Detected package version outside of dependency constraint: Aspire.RabbitMQ.Client 9.1.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved.
+2026-04-27T20:31:02.7484714Z #19 3.655 /app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj : warning NU1608: Detected package version outside of dependency constraint: AspNetCore.HealthChecks.Rabbitmq.v6 9.0.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved.
+2026-04-27T20:31:07.2027132Z #19 8.109   EventBus -> /app/artifacts/bin/EventBus/release/EventBus.dll
+2026-04-27T20:31:07.3676505Z #19 8.123   eShop.ServiceDefaults -> /app/artifacts/bin/eShop.ServiceDefaults/release/eShop.ServiceDefaults.dll
+2026-04-27T20:31:07.7422018Z #19 8.649   IntegrationEventLogEF -> /app/artifacts/bin/IntegrationEventLogEF/release/IntegrationEventLogEF.dll
+2026-04-27T20:31:08.3537139Z #19 9.037 /app/artifacts/obj/EventBusRabbitMQ/release/Microsoft.Extensions.Configuration.Binder.SourceGeneration/Microsoft.Extensions.Configuration.Binder.SourceGeneration.ConfigurationBindingGenerator/BindingExtensions.g.cs(40,10): warning CS9270: 'InterceptsLocationAttribute(string, int, int)' is not supported. Move to 'InterceptableLocation'-based generation of these attributes instead. (https://github.com/dotnet/roslyn/issues/72133) [/app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj]
+2026-04-27T20:31:08.3549720Z #19 9.037 /app/src/EventBusRabbitMQ/RabbitMqDependencyInjectionExtensions.cs(31,9): warning IL2026: Using member 'Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions.Configure<TOptions>(IServiceCollection, IConfiguration)' which has 'RequiresUnreferencedCodeAttribute' can break functionality when trimming application code. TOptions's dependent types may have their members trimmed. Ensure all required members are preserved. [/app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj]
+2026-04-27T20:31:08.3558031Z #19 9.038 /app/src/EventBusRabbitMQ/RabbitMqDependencyInjectionExtensions.cs(31,9): warning IL3050: Using member 'Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions.Configure<TOptions>(IServiceCollection, IConfiguration)' which has 'RequiresDynamicCodeAttribute' can break functionality when AOT compiling. Binding strongly typed objects to configuration values may require generating dynamic code at runtime. [/app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj]
+2026-04-27T20:31:08.3569995Z #19 9.109   EventBusRabbitMQ -> /app/artifacts/bin/EventBusRabbitMQ/release/EventBusRabbitMQ.dll
+2026-04-27T20:31:10.1099782Z #19 11.02 /app/src/Catalog.API/Extensions/Extensions.cs(42,20): error CS0023: Operator '.' cannot be applied to operand of type 'void' [/app/src/Catalog.API/Catalog.API.csproj]
+2026-04-27T20:31:10.1102259Z #19 11.02 /app/src/Catalog.API/Extensions/Extensions.cs(47,20): error CS0023: Operator '.' cannot be applied to operand of type 'void' [/app/src/Catalog.API/Catalog.API.csproj]
+2026-04-27T20:31:10.2168382Z #19 ERROR: process "/bin/sh -c dotnet publish ./src/Catalog.API/Catalog.API.csproj     -c Release     -o /app/publish     /p:UseAppHost=false" did not complete successfully: exit code: 1
+2026-04-27T20:31:10.2340363Z ------
+2026-04-27T20:31:10.2341990Z  > [build 12/12] RUN dotnet publish ./src/Catalog.API/Catalog.API.csproj     -c Release     -o /app/publish     /p:UseAppHost=false:
+2026-04-27T20:31:10.2344559Z 3.655 /app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj : warning NU1608: Detected package version outside of dependency constraint: AspNetCore.HealthChecks.Rabbitmq.v6 9.0.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved.
+2026-04-27T20:31:10.2348148Z 8.109   EventBus -> /app/artifacts/bin/EventBus/release/EventBus.dll
+2026-04-27T20:31:10.2349757Z 8.123   eShop.ServiceDefaults -> /app/artifacts/bin/eShop.ServiceDefaults/release/eShop.ServiceDefaults.dll
+2026-04-27T20:31:10.2366487Z 8.649   IntegrationEventLogEF -> /app/artifacts/bin/IntegrationEventLogEF/release/IntegrationEventLogEF.dll
+2026-04-27T20:31:10.2392154Z onAttribute(string, int, int)' is not supported. Move to 'InterceptableLocation'-based generation of these attributes instead. (https://github.com/dotnet/roslyn/issues/72133) [/app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj]
+2026-04-27T20:31:10.2399521Z 9.037 /app/src/EventBusRabbitMQ/RabbitMqDependencyInjectionExtensions.cs(31,9): warning IL2026: Using member 'Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions.Configure<TOptions>(IServiceCollection, IConfiguration)' which has 'RequiresUnreferencedCodeAttribute' can break functionality when trimming application code. TOptions's dependent types may have their members trimmed. Ensure all required members are preserved. [/app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj]
+2026-04-27T20:31:10.2416595Z 9.038 /app/src/EventBusRabbitMQ/RabbitMqDependencyInjectionExtensions.cs(31,9): warning IL3050: Using member 'Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions.Configure<TOptions>(IServiceCollection, IConfiguration)' which has 'RequiresDynamicCodeAttribute' can break functionality when AOT compiling. Binding strongly typed objects to configuration values may require generating dynamic code at runtime. [/app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj]
+2026-04-27T20:31:10.2420341Z 9.109   EventBusRabbitMQ -> /app/artifacts/bin/EventBusRabbitMQ/release/EventBusRabbitMQ.dll
+2026-04-27T20:31:10.2423032Z 11.02 /app/src/Catalog.API/Extensions/Extensions.cs(42,20): error CS0023: Operator '.' cannot be applied to operand of type 'void' [/app/src/Catalog.API/Catalog.API.csproj]
+2026-04-27T20:31:10.2425411Z 11.02 /app/src/Catalog.API/Extensions/Extensions.cs(47,20): error CS0023: Operator '.' cannot be applied to operand of type 'void' [/app/src/Catalog.API/Catalog.API.csproj]
+2026-04-27T20:31:10.2426426Z ------
+2026-04-27T20:31:10.2427119Z Dockerfile:26
+2026-04-27T20:31:10.2436262Z --------------------
+2026-04-27T20:31:10.2437358Z   25 |     # Publish Catalog.API
+2026-04-27T20:31:10.2438071Z   26 | >>> RUN dotnet publish ./src/Catalog.API/Catalog.API.csproj \
+2026-04-27T20:31:10.2439020Z   27 | >>>     -c Release \
+2026-04-27T20:31:10.2441152Z   28 | >>>     -o /app/publish \
+2026-04-27T20:31:10.2441585Z   29 | >>>     /p:UseAppHost=false
+2026-04-27T20:31:10.2441959Z   30 |     
+2026-04-27T20:31:10.2443515Z --------------------
+2026-04-27T20:31:10.2445130Z ERROR: failed to build: failed to solve: process "/bin/sh -c dotnet publish ./src/Catalog.API/Catalog.API.csproj     -c Release     -o /app/publish     /p:UseAppHost=false" did not complete successfully: exit code: 1
+2026-04-27T20:31:10.2465559Z ##[error]Process completed with exit code 1.
+2026-04-27T20:31:10.2589565Z Post job cleanup.
+2026-04-27T20:31:10.5640312Z ##[group]Logout from docker.io
+2026-04-27T20:31:10.5694303Z [command]/usr/bin/docker logout docker.io
+2026-04-27T20:31:10.5835963Z Removing login credentials for docker.io
+2026-04-27T20:31:10.5866696Z ##[endgroup]
+2026-04-27T20:31:10.5867584Z ##[group]Post cache
+2026-04-27T20:31:10.5869701Z State not set
+2026-04-27T20:31:10.5870279Z ##[endgroup]
+2026-04-27T20:31:10.6031281Z Post job cleanup.
+2026-04-27T20:31:10.6975200Z [command]/usr/bin/git version
+2026-04-27T20:31:10.7011441Z git version 2.53.0
+2026-04-27T20:31:10.7054422Z Temporarily overriding HOME='/home/runner/work/_temp/fd161fc6-eb55-4841-96de-5202eefbadf2' before making global git config changes
+2026-04-27T20:31:10.7055415Z Adding repository directory to the temporary git global config as a safe directory
+2026-04-27T20:31:10.7067035Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/eShop/eShop
+2026-04-27T20:31:10.7100059Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-04-27T20:31:10.7131045Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-04-27T20:31:10.7351795Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-04-27T20:31:10.7372414Z http.https://github.com/.extraheader
+2026-04-27T20:31:10.7384420Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-04-27T20:31:10.7414191Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-04-27T20:31:10.7633718Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-04-27T20:31:10.7663697Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-04-27T20:31:10.7992348Z Cleaning up orphan processes
+2026-04-27T20:31:10.8343813Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v4, docker/login-action@v3. Actions will be forced to run with Node.js 24 by default starting June 2nd, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

@@ -1,0 +1,186 @@
+﻿2026-04-29T12:33:45.3344224Z ##[group]Run docker build -t ***/catalog-api:latest -f src/Catalog.API/Dockerfile .
+2026-04-29T12:33:45.3345089Z [36;1mdocker build -t ***/catalog-api:latest -f src/Catalog.API/Dockerfile .[0m
+2026-04-29T12:33:45.3345943Z [36;1mdocker push ***/catalog-api:latest[0m
+2026-04-29T12:33:45.3373612Z shell: /usr/bin/bash -e {0}
+2026-04-29T12:33:45.3374101Z ##[endgroup]
+2026-04-29T12:33:46.3761261Z #0 building with "default" instance using docker driver
+2026-04-29T12:33:46.3762250Z 
+2026-04-29T12:33:46.3763826Z #1 [internal] load build definition from Dockerfile
+2026-04-29T12:33:46.3764647Z #1 transferring dockerfile: 1.58kB done
+2026-04-29T12:33:46.3765296Z #1 DONE 0.0s
+2026-04-29T12:33:46.3765525Z 
+2026-04-29T12:33:46.3765943Z #2 [internal] load metadata for mcr.microsoft.com/dotnet/sdk:10.0
+2026-04-29T12:33:46.3766988Z #2 DONE 0.1s
+2026-04-29T12:33:46.3767367Z 
+2026-04-29T12:33:46.3767852Z #3 [internal] load metadata for mcr.microsoft.com/dotnet/aspnet:10.0
+2026-04-29T12:33:46.3768661Z #3 DONE 0.1s
+2026-04-29T12:33:46.3769118Z 
+2026-04-29T12:33:46.3769350Z #4 [internal] load .dockerignore
+2026-04-29T12:33:46.3769763Z #4 transferring context:
+2026-04-29T12:33:46.5030024Z #4 transferring context: 330B done
+2026-04-29T12:33:46.5031666Z #4 DONE 0.0s
+2026-04-29T12:33:46.5034350Z 
+2026-04-29T12:33:46.5037061Z #5 [stage-1 1/4] FROM mcr.microsoft.com/dotnet/aspnet:10.0@sha256:55e37c7795bfaf6b9cc5d77c155811d9569f529d86e20647704bc1d7dd9741d4
+2026-04-29T12:33:46.5043861Z #5 resolve mcr.microsoft.com/dotnet/aspnet:10.0@sha256:55e37c7795bfaf6b9cc5d77c155811d9569f529d86e20647704bc1d7dd9741d4 done
+2026-04-29T12:33:46.5045654Z #5 sha256:fc1c5573d92542bb05785498ed2bec48bb429edefd7a0c32cee934329f104926 1.58kB / 1.58kB done
+2026-04-29T12:33:46.5046936Z #5 sha256:b40150c1c2717d324cdb17278c8efdfa4dfcd2ffe083e976f0bcedf31115f081 19.92MB / 29.73MB 0.1s
+2026-04-29T12:33:46.5048329Z #5 sha256:27640c99102cbc65ab781f867595024e751151897ed80eab17cc75adb22bb3c2 3.56kB / 3.56kB 0.1s done
+2026-04-29T12:33:46.5065892Z #5 sha256:55e37c7795bfaf6b9cc5d77c155811d9569f529d86e20647704bc1d7dd9741d4 1.08kB / 1.08kB done
+2026-04-29T12:33:46.5067212Z #5 sha256:f328c70651395189836bba64f044895274f3b598a8cd8de2e91ebc6465f47535 3.12kB / 3.12kB done
+2026-04-29T12:33:46.5104188Z #5 sha256:33919016b1bbea02a7f751a9ca5f6b31f1dffd1f5f0134f44b29d8bb4fbc33a6 14.68MB / 16.82MB 0.1s
+2026-04-29T12:33:46.5106872Z #5 sha256:d47ce24876437904e26a4e0c1a183649aebed354c3b1be6a68ac7e9052cf6703 1.05MB / 36.66MB 0.1s
+2026-04-29T12:33:46.6063304Z #5 sha256:b40150c1c2717d324cdb17278c8efdfa4dfcd2ffe083e976f0bcedf31115f081 29.73MB / 29.73MB 0.2s
+2026-04-29T12:33:46.6064859Z #5 sha256:33919016b1bbea02a7f751a9ca5f6b31f1dffd1f5f0134f44b29d8bb4fbc33a6 16.82MB / 16.82MB 0.1s done
+2026-04-29T12:33:46.6065975Z #5 sha256:d47ce24876437904e26a4e0c1a183649aebed354c3b1be6a68ac7e9052cf6703 25.17MB / 36.66MB 0.2s
+2026-04-29T12:33:46.6091968Z #5 sha256:72f9feecfdbd428c84b871f5d41a165172772583b59cc436386f1e76c3f81f5c 154B / 154B 0.2s done
+2026-04-29T12:33:46.7893419Z #5 sha256:d47ce24876437904e26a4e0c1a183649aebed354c3b1be6a68ac7e9052cf6703 33.55MB / 36.66MB 0.3s
+2026-04-29T12:33:46.8999296Z #5 sha256:d47ce24876437904e26a4e0c1a183649aebed354c3b1be6a68ac7e9052cf6703 36.66MB / 36.66MB 0.4s
+2026-04-29T12:33:47.2321906Z #5 ...
+2026-04-29T12:33:47.2323142Z 
+2026-04-29T12:33:47.2323716Z #6 [internal] load build context
+2026-04-29T12:33:47.2324891Z #6 transferring context: 17.96MB 0.4s done
+2026-04-29T12:33:47.2325443Z #6 DONE 0.8s
+2026-04-29T12:33:47.2325835Z 
+2026-04-29T12:33:47.2326425Z #5 [stage-1 1/4] FROM mcr.microsoft.com/dotnet/aspnet:10.0@sha256:55e37c7795bfaf6b9cc5d77c155811d9569f529d86e20647704bc1d7dd9741d4
+2026-04-29T12:33:47.2327777Z #5 sha256:b40150c1c2717d324cdb17278c8efdfa4dfcd2ffe083e976f0bcedf31115f081 29.73MB / 29.73MB 0.8s done
+2026-04-29T12:33:47.2328989Z #5 sha256:d47ce24876437904e26a4e0c1a183649aebed354c3b1be6a68ac7e9052cf6703 36.66MB / 36.66MB 0.8s done
+2026-04-29T12:33:47.2330416Z #5 sha256:a51402fb1ecf83c9206b43cc071827d9deca95ed6953b7205612720c390c86fb 0B / 12.77MB 0.8s
+2026-04-29T12:33:47.3412945Z #5 sha256:a51402fb1ecf83c9206b43cc071827d9deca95ed6953b7205612720c390c86fb 12.77MB / 12.77MB 0.8s done
+2026-04-29T12:33:47.6637588Z #5 extracting sha256:b40150c1c2717d324cdb17278c8efdfa4dfcd2ffe083e976f0bcedf31115f081 0.4s
+2026-04-29T12:33:48.5017538Z #5 extracting sha256:33919016b1bbea02a7f751a9ca5f6b31f1dffd1f5f0134f44b29d8bb4fbc33a6 0.2s
+2026-04-29T12:33:51.8337688Z #5 extracting sha256:d47ce24876437904e26a4e0c1a183649aebed354c3b1be6a68ac7e9052cf6703 0.4s done
+2026-04-29T12:33:51.8339094Z #5 extracting sha256:a51402fb1ecf83c9206b43cc071827d9deca95ed6953b7205612720c390c86fb 0.1s
+2026-04-29T12:33:52.0088771Z #5 DONE 5.5s
+2026-04-29T12:33:52.0089697Z 
+2026-04-29T12:33:52.0090643Z #7 [stage-1 2/4] WORKDIR /app
+2026-04-29T12:33:52.0091564Z #7 DONE 0.0s
+2026-04-29T12:33:52.0091956Z 
+2026-04-29T12:33:52.0092901Z #8 [build  1/16] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:8a90a473da5205a16979de99d2fc20975e922c68304f5c79d564e666dc3982fc
+2026-04-29T12:33:52.0094365Z #8 resolve mcr.microsoft.com/dotnet/sdk:10.0@sha256:8a90a473da5205a16979de99d2fc20975e922c68304f5c79d564e666dc3982fc done
+2026-04-29T12:33:52.0095805Z #8 sha256:6d7f69bc7bc9d4510ca255977b1f53ce52a79307e048a91450b2aecd63627cc3 2.42kB / 2.42kB done
+2026-04-29T12:33:52.0097097Z #8 sha256:36cd2f00ec659f21cd63724ca026cd3c64238edefa726fb3a8fd1686ce7a157e 5.83kB / 5.83kB done
+2026-04-29T12:33:52.0123705Z #8 sha256:8a90a473da5205a16979de99d2fc20975e922c68304f5c79d564e666dc3982fc 1.08kB / 1.08kB done
+2026-04-29T12:33:52.0124814Z #8 sha256:d47ce24876437904e26a4e0c1a183649aebed354c3b1be6a68ac7e9052cf6703 36.66MB / 36.66MB 0.8s done
+2026-04-29T12:33:52.0125891Z #8 sha256:72f9feecfdbd428c84b871f5d41a165172772583b59cc436386f1e76c3f81f5c 154B / 154B 0.2s done
+2026-04-29T12:33:52.0207202Z #8 sha256:b40150c1c2717d324cdb17278c8efdfa4dfcd2ffe083e976f0bcedf31115f081 29.73MB / 29.73MB 0.8s done
+2026-04-29T12:33:52.0208563Z #8 sha256:33919016b1bbea02a7f751a9ca5f6b31f1dffd1f5f0134f44b29d8bb4fbc33a6 16.82MB / 16.82MB 0.1s done
+2026-04-29T12:33:52.0209876Z #8 sha256:a51402fb1ecf83c9206b43cc071827d9deca95ed6953b7205612720c390c86fb 12.77MB / 12.77MB 0.8s done
+2026-04-29T12:33:52.0211102Z #8 sha256:6d59edda6ae43387a264a294e85fa356b5e5850d8f7b17a44f509b1c0d53e241 23.81MB / 23.81MB 0.9s done
+2026-04-29T12:33:52.0212316Z #8 sha256:2920bdd46f0067e317cdbdad1d12c147f2ffe785f8e435a0c7e9a871bdda68a6 191.53MB / 191.53MB 1.7s done
+2026-04-29T12:33:52.0213620Z #8 extracting sha256:b40150c1c2717d324cdb17278c8efdfa4dfcd2ffe083e976f0bcedf31115f081 1.0s done
+2026-04-29T12:33:52.0214759Z #8 sha256:5f2a92c0431ddbacd726d69b88bd36ffd689c12878acd7b1796e0c3a3cc9668b 18.07MB / 18.07MB 1.0s done
+2026-04-29T12:33:52.0215881Z #8 sha256:30f227425bcd4f5c90662a49f27f2edb295df21e9f04c54d643ec21e2a073cbd 498B / 498B 0.9s done
+2026-04-29T12:33:52.0216992Z #8 extracting sha256:33919016b1bbea02a7f751a9ca5f6b31f1dffd1f5f0134f44b29d8bb4fbc33a6 0.5s done
+2026-04-29T12:33:52.0218038Z #8 extracting sha256:27640c99102cbc65ab781f867595024e751151897ed80eab17cc75adb22bb3c2 done
+2026-04-29T12:33:52.0219056Z #8 extracting sha256:72f9feecfdbd428c84b871f5d41a165172772583b59cc436386f1e76c3f81f5c done
+2026-04-29T12:33:52.0220110Z #8 extracting sha256:a51402fb1ecf83c9206b43cc071827d9deca95ed6953b7205612720c390c86fb 0.2s done
+2026-04-29T12:33:52.0221158Z #8 extracting sha256:6d59edda6ae43387a264a294e85fa356b5e5850d8f7b17a44f509b1c0d53e241 0.1s
+2026-04-29T12:33:52.7931625Z #8 extracting sha256:6d59edda6ae43387a264a294e85fa356b5e5850d8f7b17a44f509b1c0d53e241 0.8s done
+2026-04-29T12:33:52.7932476Z #8 extracting sha256:2920bdd46f0067e317cdbdad1d12c147f2ffe785f8e435a0c7e9a871bdda68a6
+2026-04-29T12:33:56.3396382Z #8 extracting sha256:2920bdd46f0067e317cdbdad1d12c147f2ffe785f8e435a0c7e9a871bdda68a6 3.4s done
+2026-04-29T12:33:57.2889477Z #8 extracting sha256:30f227425bcd4f5c90662a49f27f2edb295df21e9f04c54d643ec21e2a073cbd
+2026-04-29T12:33:57.4026386Z #8 extracting sha256:30f227425bcd4f5c90662a49f27f2edb295df21e9f04c54d643ec21e2a073cbd done
+2026-04-29T12:33:57.4027360Z #8 extracting sha256:5f2a92c0431ddbacd726d69b88bd36ffd689c12878acd7b1796e0c3a3cc9668b 0.1s
+2026-04-29T12:33:57.7084889Z #8 extracting sha256:5f2a92c0431ddbacd726d69b88bd36ffd689c12878acd7b1796e0c3a3cc9668b 0.3s done
+2026-04-29T12:33:57.7085440Z #8 DONE 11.3s
+2026-04-29T12:33:57.7085878Z 
+2026-04-29T12:33:57.7085973Z #9 [build  2/16] WORKDIR /app
+2026-04-29T12:33:57.7086211Z #9 DONE 0.0s
+2026-04-29T12:33:57.7086318Z 
+2026-04-29T12:33:57.7086453Z #10 [build  3/16] COPY Directory.Packages.props .
+2026-04-29T12:33:57.7086925Z #10 DONE 0.0s
+2026-04-29T12:33:57.7087102Z 
+2026-04-29T12:33:57.7087227Z #11 [build  4/16] COPY Directory.Build.props .
+2026-04-29T12:33:57.7087498Z #11 DONE 0.0s
+2026-04-29T12:33:57.7087739Z 
+2026-04-29T12:33:57.7087961Z #12 [build  5/16] COPY Directory.Build.targets .
+2026-04-29T12:33:57.7088480Z #12 DONE 0.0s
+2026-04-29T12:33:57.7088654Z 
+2026-04-29T12:33:57.7088810Z #13 [build  6/16] COPY global.json .
+2026-04-29T12:33:57.7089055Z #13 DONE 0.0s
+2026-04-29T12:33:57.7089162Z 
+2026-04-29T12:33:57.7089291Z #14 [build  7/16] COPY nuget.config .
+2026-04-29T12:33:57.7089695Z #14 DONE 0.0s
+2026-04-29T12:33:57.7089855Z 
+2026-04-29T12:33:57.7090185Z #15 [build  8/16] COPY src/Catalog.API/Catalog.API.csproj src/Catalog.API/
+2026-04-29T12:33:57.7090551Z #15 DONE 0.0s
+2026-04-29T12:33:57.8939362Z 
+2026-04-29T12:33:57.8940306Z #16 [build  9/16] COPY src/EventBusRabbitMQ/EventBusRabbitMQ.csproj src/EventBusRabbitMQ/
+2026-04-29T12:33:57.8940958Z #16 DONE 0.0s
+2026-04-29T12:33:57.8941108Z 
+2026-04-29T12:33:57.8941569Z #17 [build 10/16] COPY src/IntegrationEventLogEF/IntegrationEventLogEF.csproj src/IntegrationEventLogEF/
+2026-04-29T12:33:57.8942302Z #17 DONE 0.0s
+2026-04-29T12:33:57.8942464Z 
+2026-04-29T12:33:57.8943185Z #18 [build 11/16] COPY src/eShop.ServiceDefaults/eShop.ServiceDefaults.csproj src/eShop.ServiceDefaults/
+2026-04-29T12:33:57.8943925Z #18 DONE 0.0s
+2026-04-29T12:33:57.8944091Z 
+2026-04-29T12:33:57.8944332Z #19 [build 12/16] COPY src/EventBus/EventBus.csproj src/EventBus/
+2026-04-29T12:33:57.8944818Z #19 DONE 0.0s
+2026-04-29T12:33:57.8944997Z 
+2026-04-29T12:33:57.8945182Z #20 [build 13/16] COPY src/Shared/ src/Shared/
+2026-04-29T12:33:57.8945577Z #20 DONE 0.0s
+2026-04-29T12:33:57.8945744Z 
+2026-04-29T12:33:57.8946356Z #21 [build 14/16] RUN for i in {1..3}; do dotnet restore src/Catalog.API/Catalog.API.csproj --disable-parallel && break || sleep 30; done
+2026-04-29T12:33:58.5209615Z #21 0.778   Determining projects to restore...
+2026-04-29T12:34:00.2514777Z #21 2.508   Restored /app/src/EventBus/EventBus.csproj (in 782 ms).
+2026-04-29T12:34:00.8227680Z #21 3.079   Restored /app/src/IntegrationEventLogEF/IntegrationEventLogEF.csproj (in 565 ms).
+2026-04-29T12:34:02.1610859Z #21 4.418 /app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj : warning NU1608: Detected package version outside of dependency constraint: Aspire.RabbitMQ.Client 9.1.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved. [/app/src/Catalog.API/Catalog.API.csproj]
+2026-04-29T12:34:02.1613218Z #21 4.418 /app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj : warning NU1608: Detected package version outside of dependency constraint: AspNetCore.HealthChecks.Rabbitmq.v6 9.0.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved. [/app/src/Catalog.API/Catalog.API.csproj]
+2026-04-29T12:34:02.3631040Z #21 4.469   Restored /app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj (in 1.36 sec).
+2026-04-29T12:34:03.6437486Z #21 5.900   Restored /app/src/eShop.ServiceDefaults/eShop.ServiceDefaults.csproj (in 1.43 sec).
+2026-04-29T12:34:10.1504550Z #21 12.41 /app/src/Catalog.API/Catalog.API.csproj : warning NU1603: Catalog.API depends on CommunityToolkit.Aspire.OllamaSharp (>= 9.1.0-beta.132) but CommunityToolkit.Aspire.OllamaSharp 9.1.0-beta.132 was not found. CommunityToolkit.Aspire.OllamaSharp 9.1.0 was resolved instead.
+2026-04-29T12:34:10.2795273Z #21 12.41 /app/src/Catalog.API/Catalog.API.csproj : warning NU1608: Detected package version outside of dependency constraint: Aspire.RabbitMQ.Client 9.1.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved.
+2026-04-29T12:34:10.2798558Z #21 12.41 /app/src/Catalog.API/Catalog.API.csproj : warning NU1608: Detected package version outside of dependency constraint: AspNetCore.HealthChecks.Rabbitmq.v6 9.0.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved.
+2026-04-29T12:34:10.2800577Z #21 12.54   Restored /app/src/Catalog.API/Catalog.API.csproj (in 6.62 sec).
+2026-04-29T12:34:10.9825417Z #21 DONE 13.2s
+2026-04-29T12:34:11.1335484Z 
+2026-04-29T12:34:11.1336030Z #22 [build 15/16] COPY . .
+2026-04-29T12:34:11.1393504Z #22 DONE 0.2s
+2026-04-29T12:34:11.2908821Z 
+2026-04-29T12:34:11.2909584Z #23 [build 16/16] RUN dotnet publish ./src/Catalog.API/Catalog.API.csproj     -c Release     -o /app/publish     /p:UseAppHost=false
+2026-04-29T12:34:11.9894761Z #23 0.849   Determining projects to restore...
+2026-04-29T12:34:13.0596638Z #23 1.919 /app/src/Catalog.API/Catalog.API.csproj : warning NU1603: Catalog.API depends on CommunityToolkit.Aspire.OllamaSharp (>= 9.1.0-beta.132) but CommunityToolkit.Aspire.OllamaSharp 9.1.0-beta.132 was not found. CommunityToolkit.Aspire.OllamaSharp 9.1.0 was resolved instead.
+2026-04-29T12:34:13.2125798Z #23 1.919 /app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj : warning NU1608: Detected package version outside of dependency constraint: Aspire.RabbitMQ.Client 9.1.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved. [/app/src/Catalog.API/Catalog.API.csproj]
+2026-04-29T12:34:13.2128866Z #23 1.919 /app/src/Catalog.API/Catalog.API.csproj : warning NU1608: Detected package version outside of dependency constraint: Aspire.RabbitMQ.Client 9.1.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved.
+2026-04-29T12:34:13.2131824Z #23 1.919 /app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj : warning NU1608: Detected package version outside of dependency constraint: AspNetCore.HealthChecks.Rabbitmq.v6 9.0.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved. [/app/src/Catalog.API/Catalog.API.csproj]
+2026-04-29T12:34:13.2134874Z #23 1.919 /app/src/Catalog.API/Catalog.API.csproj : warning NU1608: Detected package version outside of dependency constraint: AspNetCore.HealthChecks.Rabbitmq.v6 9.0.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved.
+2026-04-29T12:34:13.2136575Z #23 1.922   All projects are up-to-date for restore.
+2026-04-29T12:34:13.3144595Z #23 2.174 /app/src/Catalog.API/Catalog.API.csproj : warning NU1603: Catalog.API depends on CommunityToolkit.Aspire.OllamaSharp (>= 9.1.0-beta.132) but CommunityToolkit.Aspire.OllamaSharp 9.1.0-beta.132 was not found. CommunityToolkit.Aspire.OllamaSharp 9.1.0 was resolved instead.
+2026-04-29T12:34:13.3146447Z #23 2.174 /app/src/Catalog.API/Catalog.API.csproj : warning NU1608: Detected package version outside of dependency constraint: Aspire.RabbitMQ.Client 9.1.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved.
+2026-04-29T12:34:13.3148742Z #23 2.174 /app/src/Catalog.API/Catalog.API.csproj : warning NU1608: Detected package version outside of dependency constraint: AspNetCore.HealthChecks.Rabbitmq.v6 9.0.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved.
+2026-04-29T12:34:14.0883982Z #23 2.948 /app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj : warning NU1608: Detected package version outside of dependency constraint: Aspire.RabbitMQ.Client 9.1.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved.
+2026-04-29T12:34:14.2387752Z #23 2.948 /app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj : warning NU1608: Detected package version outside of dependency constraint: AspNetCore.HealthChecks.Rabbitmq.v6 9.0.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved.
+2026-04-29T12:34:18.1123853Z #23 6.972   EventBus -> /app/artifacts/bin/EventBus/release/EventBus.dll
+2026-04-29T12:34:18.2785115Z #23 6.987   eShop.ServiceDefaults -> /app/artifacts/bin/eShop.ServiceDefaults/release/eShop.ServiceDefaults.dll
+2026-04-29T12:34:18.5591847Z #23 7.419   IntegrationEventLogEF -> /app/artifacts/bin/IntegrationEventLogEF/release/IntegrationEventLogEF.dll
+2026-04-29T12:34:18.7766096Z #23 7.636 /app/artifacts/obj/EventBusRabbitMQ/release/Microsoft.Extensions.Configuration.Binder.SourceGeneration/Microsoft.Extensions.Configuration.Binder.SourceGeneration.ConfigurationBindingGenerator/BindingExtensions.g.cs(40,10): warning CS9270: 'InterceptsLocationAttribute(string, int, int)' is not supported. Move to 'InterceptableLocation'-based generation of these attributes instead. (https://github.com/dotnet/roslyn/issues/72133) [/app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj]
+2026-04-29T12:34:18.9935201Z #23 7.636 /app/src/EventBusRabbitMQ/RabbitMqDependencyInjectionExtensions.cs(31,9): warning IL2026: Using member 'Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions.Configure<TOptions>(IServiceCollection, IConfiguration)' which has 'RequiresUnreferencedCodeAttribute' can break functionality when trimming application code. TOptions's dependent types may have their members trimmed. Ensure all required members are preserved. [/app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj]
+2026-04-29T12:34:18.9942505Z #23 7.636 /app/src/EventBusRabbitMQ/RabbitMqDependencyInjectionExtensions.cs(31,9): warning IL3050: Using member 'Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions.Configure<TOptions>(IServiceCollection, IConfiguration)' which has 'RequiresDynamicCodeAttribute' can break functionality when AOT compiling. Binding strongly typed objects to configuration values may require generating dynamic code at runtime. [/app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj]
+2026-04-29T12:34:18.9947130Z #23 7.702   EventBusRabbitMQ -> /app/artifacts/bin/EventBusRabbitMQ/release/EventBusRabbitMQ.dll
+2026-04-29T12:34:20.8405893Z #23 9.595 /app/src/Catalog.API/Extensions/Extensions.cs(42,13): error CS1929: 'IHostApplicationBuilder' does not contain a definition for 'AddEmbeddingGenerator' and the best extension method overload 'AspireOpenAIClientBuilderEmbeddingGeneratorExtensions.AddEmbeddingGenerator(AspireOpenAIClientBuilder, string?)' requires a receiver of type 'Aspire.OpenAI.AspireOpenAIClientBuilder' [/app/src/Catalog.API/Catalog.API.csproj]
+2026-04-29T12:34:20.8410340Z #23 9.596 /app/src/Catalog.API/Extensions/Extensions.cs(47,13): error CS1929: 'IHostApplicationBuilder' does not contain a definition for 'AddEmbeddingGenerator' and the best extension method overload 'AspireOpenAIClientBuilderEmbeddingGeneratorExtensions.AddEmbeddingGenerator(AspireOpenAIClientBuilder, string?)' requires a receiver of type 'Aspire.OpenAI.AspireOpenAIClientBuilder' [/app/src/Catalog.API/Catalog.API.csproj]
+2026-04-29T12:34:20.8413355Z #23 ERROR: process "/bin/sh -c dotnet publish ./src/Catalog.API/Catalog.API.csproj     -c Release     -o /app/publish     /p:UseAppHost=false" did not complete successfully: exit code: 1
+2026-04-29T12:34:20.8414184Z ------
+2026-04-29T12:34:20.8414922Z  > [build 16/16] RUN dotnet publish ./src/Catalog.API/Catalog.API.csproj     -c Release     -o /app/publish     /p:UseAppHost=false:
+2026-04-29T12:34:20.8416475Z 2.948 /app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj : warning NU1608: Detected package version outside of dependency constraint: AspNetCore.HealthChecks.Rabbitmq.v6 9.0.0 requires RabbitMQ.Client (>= 6.8.1 && < 7.0.0) but version RabbitMQ.Client 7.1.2 was resolved.
+2026-04-29T12:34:20.8418049Z 6.972   EventBus -> /app/artifacts/bin/EventBus/release/EventBus.dll
+2026-04-29T12:34:20.8418616Z 6.987   eShop.ServiceDefaults -> /app/artifacts/bin/eShop.ServiceDefaults/release/eShop.ServiceDefaults.dll
+2026-04-29T12:34:20.8419519Z 7.419   IntegrationEventLogEF -> /app/artifacts/bin/IntegrationEventLogEF/release/IntegrationEventLogEF.dll
+2026-04-29T12:34:20.8422480Z 7.636 /app/artifacts/obj/EventBusRabbitMQ/release/Microsoft.Extensions.Configuration.Binder.SourceGeneration/Microsoft.Extensions.Configuration.Binder.SourceGeneration.ConfigurationBindingGenerator/BindingExtensions.g.cs(40,10): warning CS9270: 'InterceptsLocationAttribute(string, int, int)' is not supported. Move to 'InterceptableLocation'-based generation of these attributes instead. (https://github.com/dotnet/roslyn/issues/72133) [/app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj]
+2026-04-29T12:34:20.8430387Z 7.636 /app/src/EventBusRabbitMQ/RabbitMqDependencyInjectionExtensions.cs(31,9): warning IL2026: Using member 'Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions.Configure<TOptions>(IServiceCollection, IConfiguration)' which has 'RequiresUnreferencedCodeAttribute' can break functionality when trimming application code. TOptions's dependent types may have their members trimmed. Ensure all required members are preserved. [/app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj]
+2026-04-29T12:34:20.8436824Z 7.636 /app/src/EventBusRabbitMQ/RabbitMqDependencyInjectionExtensions.cs(31,9): warning IL3050: Using member 'Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions.Configure<TOptions>(IServiceCollection, IConfiguration)' which has 'RequiresDynamicCodeAttribute' can break functionality when AOT compiling. Binding strongly typed objects to configuration values may require generating dynamic code at runtime. [/app/src/EventBusRabbitMQ/EventBusRabbitMQ.csproj]
+2026-04-29T12:34:20.8440310Z 7.702   EventBusRabbitMQ -> /app/artifacts/bin/EventBusRabbitMQ/release/EventBusRabbitMQ.dll
+2026-04-29T12:34:20.8441754Z ngGenerator(AspireOpenAIClientBuilder, string?)' requires a receiver of type 'Aspire.OpenAI.AspireOpenAIClientBuilder' [/app/src/Catalog.API/Catalog.API.csproj]
+2026-04-29T12:34:20.8445369Z 9.596 /app/src/Catalog.API/Extensions/Extensions.cs(47,13): error CS1929: 'IHostApplicationBuilder' does not contain a definition for 'AddEmbeddingGenerator' and the best extension method overload 'AspireOpenAIClientBuilderEmbeddingGeneratorExtensions.AddEmbeddingGenerator(AspireOpenAIClientBuilder, string?)' requires a receiver of type 'Aspire.OpenAI.AspireOpenAIClientBuilder' [/app/src/Catalog.API/Catalog.API.csproj]
+2026-04-29T12:34:20.8448032Z ------
+2026-04-29T12:34:20.8448321Z Dockerfile:35
+2026-04-29T12:34:20.8448596Z --------------------
+2026-04-29T12:34:20.8448946Z   34 |     # Publish Catalog.API
+2026-04-29T12:34:20.8449431Z   35 | >>> RUN dotnet publish ./src/Catalog.API/Catalog.API.csproj \
+2026-04-29T12:34:20.8449948Z   36 | >>>     -c Release \
+2026-04-29T12:34:20.8450304Z   37 | >>>     -o /app/publish \
+2026-04-29T12:34:20.8465271Z   38 | >>>     /p:UseAppHost=false
+2026-04-29T12:34:20.8466148Z   39 |     
+2026-04-29T12:34:20.8468568Z --------------------
+2026-04-29T12:34:20.8469867Z ERROR: failed to build: failed to solve: process "/bin/sh -c dotnet publish ./src/Catalog.API/Catalog.API.csproj     -c Release     -o /app/publish     /p:UseAppHost=false" did not complete successfully: exit code: 1
+2026-04-29T12:34:20.8551690Z ##[error]Process completed with exit code 1.

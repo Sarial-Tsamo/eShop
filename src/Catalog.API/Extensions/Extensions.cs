@@ -1,16 +1,52 @@
-// Assuming this is the required modification for the method chaining issue.
+using eShop.Catalog.API.Services;
+using Microsoft.Extensions.AI;
 
 public static class Extensions
 {
-    public static void DoSomething(this SomeType obj)
+    public static void AddApplicationServices(this IHostApplicationBuilder builder)
     {
-        obj.Method1();
-        obj.Method2(); // Previously chained, now separate statements
-    }
+        // Avoid loading full database config and migrations if startup
+        // is being invoked from build-time OpenAPI generation
+        if (builder.Environment.IsBuild())
+        {
+            builder.Services.AddDbContext<CatalogContext>();
+            return;
+        }
 
-    public static void AnotherAction(this SomeType obj)
-    {
-        obj.Method3(); // Previously chained
-        obj.Method4(); // Previously chained
+        builder.AddNpgsqlDbContext<CatalogContext>("catalogdb", configureDbContextOptions: dbContextOptionsBuilder =>
+        {
+            dbContextOptionsBuilder.UseNpgsql(builder =>
+            {
+                builder.UseVector();
+            });
+        });
+
+        // REVIEW: This is done for development ease but shouldn't be here in production
+        builder.Services.AddMigration<CatalogContext, CatalogContextSeed>();
+
+        // Add the integration services that consume the DbContext
+        builder.Services.AddTransient<IIntegrationEventLogService, IntegrationEventLogService<CatalogContext>>();
+
+        builder.Services.AddTransient<ICatalogIntegrationEventService, CatalogIntegrationEventService>();
+
+        builder.AddRabbitMqEventBus("eventbus")
+               .AddSubscription<OrderStatusChangedToAwaitingValidationIntegrationEvent, OrderStatusChangedToAwaitingValidationIntegrationEventHandler>()
+               .AddSubscription<OrderStatusChangedToPaidIntegrationEvent, OrderStatusChangedToPaidIntegrationEventHandler>();
+
+        builder.Services.AddOptions<CatalogOptions>()
+            .BindConfiguration(nameof(CatalogOptions));
+
+        if (builder.Configuration["OllamaEnabled"] is string ollamaEnabled && bool.Parse(ollamaEnabled))
+        {
+            builder.AddOllamaApiClient("embedding");
+            builder.AddEmbeddingGenerator();
+        }
+        else if (!string.IsNullOrWhiteSpace(builder.Configuration.GetConnectionString("textEmbeddingModel")))
+        {
+            builder.AddOpenAIClientFromConfiguration("textEmbeddingModel");
+            builder.AddEmbeddingGenerator();
+        }
+
+        builder.Services.AddScoped<ICatalogAI, CatalogAI>();
     }
 }

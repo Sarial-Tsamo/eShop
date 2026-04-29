@@ -5,8 +5,17 @@ WORKDIR /app
 ENV DOTNET_ROOT=/usr/share/dotnet
 ENV PATH=/usr/share/dotnet:$PATH
 
+# Set NuGet timeout to 5 minutes
+ENV NUGET_TIMEOUT=300
+
+# Copy solution files and central package versions
 # Copy solution files and central package versions
 COPY Directory.Packages.props .
+COPY Directory.Build.props .
+COPY Directory.Build.targets .
+COPY global.json .
+COPY nuget.config .
+
 
 # Copy all project files needed for restore
 COPY src/WebhookClient/WebhookClient.csproj src/WebhookClient/
@@ -14,7 +23,7 @@ COPY src/eShop.ServiceDefaults/eShop.ServiceDefaults.csproj src/eShop.ServiceDef
 COPY src/Shared/ src/Shared/
 
 # Restore dependencies
-RUN dotnet restore src/WebhookClient/WebhookClient.csproj
+RUN for i in {1..3}; do dotnet restore src/WebhookClient/WebhookClient.csproj --disable-parallel && break || sleep 30; done
 
 # Copy everything
 COPY . .

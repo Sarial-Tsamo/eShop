@@ -5,14 +5,23 @@ WORKDIR /src
 ENV DOTNET_ROOT=/usr/share/dotnet
 ENV PATH=/usr/share/dotnet:$PATH
 
+# Set NuGet timeout to 5 minutes
+ENV NUGET_TIMEOUT=300
+
 # Copy central package versions
-COPY Directory.Packages.props ./
+# Copy solution files and central package versions
+COPY Directory.Packages.props .
+COPY Directory.Build.props .
+COPY Directory.Build.targets .
+COPY global.json .
+COPY nuget.config .
+
 
 # Copy Webhooks.API project
 COPY src/Webhooks.API/Webhooks.API.csproj ./src/Webhooks.API/
 
 # Restore dependencies
-RUN dotnet restore ./src/Webhooks.API/Webhooks.API.csproj
+RUN for i in {1..3}; do dotnet restore ./src/Webhooks.API/Webhooks.API.csproj --disable-parallel && break || sleep 30; done
 
 # Copy everything
 COPY . .

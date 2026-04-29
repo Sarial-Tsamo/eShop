@@ -6,8 +6,6 @@ public static class Extensions
 {
     public static void AddApplicationServices(this IHostApplicationBuilder builder)
     {
-        // Avoid loading full database config and migrations if startup
-        // is being invoked from build-time OpenAPI generation
         if (builder.Environment.IsBuild())
         {
             builder.Services.AddDbContext<CatalogContext>();
@@ -22,12 +20,8 @@ public static class Extensions
             });
         });
 
-        // REVIEW: This is done for development ease but shouldn't be here in production
         builder.Services.AddMigration<CatalogContext, CatalogContextSeed>();
-
-        // Add the integration services that consume the DbContext
         builder.Services.AddTransient<IIntegrationEventLogService, IntegrationEventLogService<CatalogContext>>();
-
         builder.Services.AddTransient<ICatalogIntegrationEventService, CatalogIntegrationEventService>();
 
         builder.AddRabbitMqEventBus("eventbus")
@@ -39,12 +33,12 @@ public static class Extensions
 
         if (builder.Configuration["OllamaEnabled"] is string ollamaEnabled && bool.Parse(ollamaEnabled))
         {
- 
-            builder.AddOllamaApiClient("embedding").AddEmbeddingGenerator();
+            
+            builder.AddOllamaApiClient("embedding");
+            builder.AddEmbeddingGenerator(); 
         }
         else if (!string.IsNullOrWhiteSpace(builder.Configuration.GetConnectionString("textEmbeddingModel")))
         {
-
             builder.AddOpenAIClient("textEmbeddingModel").AddEmbeddingGenerator();
         }
 

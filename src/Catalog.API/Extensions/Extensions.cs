@@ -40,7 +40,7 @@ public static class Extensions
         if (builder.Configuration["OllamaEnabled"] is string ollamaEnabled && bool.Parse(ollamaEnabled))
         {
  
-            builder.AddOllamaSharpClient("embedding").AddEmbeddingGenerator();
+            builder.AddOllamaApiClient("embedding").AddEmbeddingGenerator();
         }
         else if (!string.IsNullOrWhiteSpace(builder.Configuration.GetConnectionString("textEmbeddingModel")))
         {

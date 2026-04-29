@@ -38,11 +38,13 @@ public static class Extensions
 
         if (builder.Configuration["OllamaEnabled"] is string ollamaEnabled && bool.Parse(ollamaEnabled))
         {
-            builder.AddOllamaApiClient("embedding").AddEmbeddingGenerator();
+            builder.AddOllamaApiClient("embedding");
+            builder.Services.AddEmbeddingGenerator();
         }
         else if (!string.IsNullOrWhiteSpace(builder.Configuration.GetConnectionString("textEmbeddingModel")))
         {
-            builder.AddOpenAIClientFromConfiguration("textEmbeddingModel").AddEmbeddingGenerator();
+            builder.AddOpenAIClientFromConfiguration("textEmbeddingModel");
+            builder.Services.AddEmbeddingGenerator();
         }
 
         builder.Services.AddScoped<ICatalogAI, CatalogAI>();

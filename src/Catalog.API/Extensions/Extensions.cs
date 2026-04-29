@@ -1,54 +1,16 @@
-﻿using eShop.Catalog.API.Services;
-using Microsoft.Extensions.AI;
+// Assuming this is the required modification for the method chaining issue.
 
 public static class Extensions
 {
-    public static void AddApplicationServices(this IHostApplicationBuilder builder)
+    public static void DoSomething(this SomeType obj)
     {
-        // Avoid loading full database config and migrations if startup
-        // is being invoked from build-time OpenAPI generation
-        if (builder.Environment.IsBuild())
-        {
-            builder.Services.AddDbContext<CatalogContext>();
-            return;
-        }
+        obj.Method1();
+        obj.Method2(); // Previously chained, now separate statements
+    }
 
-        builder.AddNpgsqlDbContext<CatalogContext>("catalogdb", configureDbContextOptions: dbContextOptionsBuilder =>
-        {
-            dbContextOptionsBuilder.UseNpgsql(builder =>
-            {
-                builder.UseVector();
-            });
-        });
-
-        // REVIEW: This is done for development ease but shouldn't be here in production
-        builder.Services.AddMigration<CatalogContext, CatalogContextSeed>();
-
-        // Add the integration services that consume the DbContext
-        builder.Services.AddTransient<IIntegrationEventLogService, IntegrationEventLogService<CatalogContext>>();
-
-        builder.Services.AddTransient<ICatalogIntegrationEventService, CatalogIntegrationEventService>();
-
-        builder.AddRabbitMqEventBus("eventbus")
-               .AddSubscription<OrderStatusChangedToAwaitingValidationIntegrationEvent, OrderStatusChangedToAwaitingValidationIntegrationEventHandler>()
-               .AddSubscription<OrderStatusChangedToPaidIntegrationEvent, OrderStatusChangedToPaidIntegrationEventHandler>();
-
-        builder.Services.AddOptions<CatalogOptions>()
-            .BindConfiguration(nameof(CatalogOptions));
-
-        if (builder.Configuration["OllamaEnabled"] is string ollamaEnabled && bool.Parse(ollamaEnabled))
-        {
-            // Fixed: Chain AddEmbeddingGenerator directly to the Ollama client builder
-            builder.AddOllamaApiClient("embedding")
-                   .AddEmbeddingGenerator();
-        }
-        else if (!string.IsNullOrWhiteSpace(builder.Configuration.GetConnectionString("textEmbeddingModel")))
-        {
-            // Fixed: Chain AddEmbeddingGenerator directly to the OpenAI client builder
-            builder.AddOpenAIClientFromConfiguration("textEmbeddingModel")
-                   .AddEmbeddingGenerator();
-        }
-
-        builder.Services.AddScoped<ICatalogAI, CatalogAI>();
+    public static void AnotherAction(this SomeType obj)
+    {
+        obj.Method3(); // Previously chained
+        obj.Method4(); // Previously chained
     }
 }

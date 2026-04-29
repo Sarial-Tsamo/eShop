@@ -6,6 +6,7 @@ public static class Extensions
 {
     public static void AddApplicationServices(this IHostApplicationBuilder builder)
     {
+        
         if (builder.Environment.IsBuild())
         {
             builder.Services.AddDbContext<CatalogContext>();
@@ -20,8 +21,12 @@ public static class Extensions
             });
         });
 
+        
         builder.Services.AddMigration<CatalogContext, CatalogContextSeed>();
+
+        
         builder.Services.AddTransient<IIntegrationEventLogService, IntegrationEventLogService<CatalogContext>>();
+
         builder.Services.AddTransient<ICatalogIntegrationEventService, CatalogIntegrationEventService>();
 
         builder.AddRabbitMqEventBus("eventbus")
@@ -35,10 +40,11 @@ public static class Extensions
         {
             
             builder.AddOllamaApiClient("embedding");
-            builder.AddEmbeddingGenerator(); 
+            builder.AddEmbeddingGenerator();
         }
         else if (!string.IsNullOrWhiteSpace(builder.Configuration.GetConnectionString("textEmbeddingModel")))
         {
+            
             builder.AddOpenAIClient("textEmbeddingModel").AddEmbeddingGenerator();
         }
 

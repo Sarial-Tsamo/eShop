@@ -1,5 +1,6 @@
 using eShop.Catalog.API.Services;
 using Microsoft.Extensions.AI;
+using CommunityToolkit.Aspire.OllamaSharp;
 
 public static class Extensions
 {
@@ -38,14 +39,12 @@ public static class Extensions
 
         if (builder.Configuration["OllamaEnabled"] is string ollamaEnabled && bool.Parse(ollamaEnabled))
         {
-            // Changed AddOllamaApiClient to AddOllamaSharpClient
-            // This returns OllamaSharpClientBuilder which supports AddEmbeddingGenerator
+ 
             builder.AddOllamaSharpClient("embedding").AddEmbeddingGenerator();
         }
         else if (!string.IsNullOrWhiteSpace(builder.Configuration.GetConnectionString("textEmbeddingModel")))
         {
-            // Changed AddOpenAIClientFromConfiguration to AddOpenAIClient
-            // This returns AspireOpenAIClientBuilder which supports AddEmbeddingGenerator
+
             builder.AddOpenAIClient("textEmbeddingModel").AddEmbeddingGenerator();
         }
 

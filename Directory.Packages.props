@@ -55,6 +55,7 @@
     <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="$(AspnetVersion)" />
     <PackageVersion Include="Microsoft.OpenApi" Version="2.3.2" />
     <PackageVersion Include="MSTest" Version="4.0.2" />
+    <PackageVersion Include="RabbitMQ.Client" Version="6.8.1" />
     
     <PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="$(AspnetVersion)" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="$(AspnetVersion)" />
